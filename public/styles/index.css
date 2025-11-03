@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: greenyellow;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+}
