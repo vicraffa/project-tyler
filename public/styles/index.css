@@ -1,10 +1,202 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: nunito;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    width: 99vw;
+    scroll-behavior: smooth;
 }
 
 .navbar {
-    background-color: greenyellow;
-    height: 10vh;
-    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: rgba(231, 231, 231, 0.3);
+    backdrop-filter: blur(45px);
+    height: 8vh;
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.albuns-ul {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#nav-logo {
+    width: 20%;
+    height: 100%;
+}
+
+#div-session {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#div-session a {
+    height: 35px;
+    width: 100px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tyler-logo {
+    height: 60px;
+    margin-left: 8px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+}
+
+ul li.albuns-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 8vw;
+    margin-left: 5px;
+}
+ul li.nav-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 8vw;
+}
+
+ul li.nav-home:hover {
+    background-color: rgba(229, 229, 229, 0.5);
+}
+
+ul li.albuns-li:hover {
+    background-color: rgba(229, 229, 229, 0.5);
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+ul li a.dropdown-album:hover {
+    cursor: none;
+}
+
+ul.dropdown-albuns li {
+    display: block;
+}
+
+
+ul.dropdown-albuns {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 8vh;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+
+ul.dropdown-albuns a:hover{
+    background-color: red;
+}
+
+li:hover ul.dropdown-albuns {
+    display: block;
+    width: 20vw;
+}
+
+
+
+
+
+
+
+
+.main {
+    margin-top: 8vh;
+    display: block;
+}
+
+.home {
+    height: 92vh;
+    background-color: rgb(71, 71, 71);
+}
+
+.goblin {
+    background-color: rgb(153, 153, 153);
+    height: 100vh;
+    width: 100%;
+}
+
+.wolf {
+    background-color: rgb(94, 198, 216);
+    height: 100vh;
+    width: 100%;
+}
+
+.cherrybomb {
+    background-color: rgb(61, 105, 149);
+    height: 100vh;
+    width: 100%;
+}
+
+.floweboy {
+    background-color: rgb(212, 174, 36);
+    height: 100vh;
+    width: 100%;
+}
+
+.igor {
+    background-color: rgb(214, 142, 213);
+    height: 100vh;
+    width: 100%;
+}
+
+.callmeifyougetlost {
+    background-color: rgb(96, 196, 156);
+    height: 100vh;
+    width: 100%;
+}
+
+.callmeifyougetlost_2 {
+    background-color: rgb(34, 204, 179);
+    height: 100vh;
+    width: 100%;
+}
+
+.chromakopia {
+    background-color: rgb(38, 159, 40);
+    height: 100vh;
+    width: 100%;
+}
+
+.donttaptheglass {
+    background-color: rgb(222, 45, 18);
+    height: 100vh;
+    width: 100%;
 }
