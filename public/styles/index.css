@@ -13,13 +13,17 @@ body {
     overflow-x: hidden;
 }
 
+.black{
+    color: rgb(0, 0, 0);
+}
+
 .navbar {
     z-index: 999;
-    font-size: 18px;
-    position: fixed;
     top: 0;
     background-color: rgba(231, 231, 231, 0.3);
     backdrop-filter: blur(45px);
+    font-size: 18px;
+    position: fixed;
     height: 8vh;
     width: 100%;
     display: flex;
@@ -43,7 +47,7 @@ body {
     align-items: center;
 }
 
-#div-session {
+#acessar {
     width: 8%;
     height: 100%;
     display: flex;
@@ -51,7 +55,7 @@ body {
     align-items: center;
 }
 
-#div-session a {
+#acessar a {
     height: 35px;
     width: 100px;
     background-color: black;
@@ -94,9 +98,6 @@ ul li.nav-home{
     width: 8vw;
 }
 
-ul li.nav-home:hover {
-    background-color: rgba(229, 229, 229, 0.5);
-}
 
 ul li.nav-sobre{
     display: flex;
@@ -106,11 +107,7 @@ ul li.nav-sobre{
     width: 8vw;
 }
 
-ul li.nav-sobre:hover {
-    background-color: rgba(229, 229, 229, 0.5);
-}
-
-ul li.albuns-li:hover {
+ul li.nav:hover {
     background-color: rgba(229, 229, 229, 0.5);
 }
 
@@ -153,9 +150,6 @@ li:hover ul.dropdown-albuns {
     width: 20vw;
 }
 
-.white{
-    color: rgb(0, 0, 0);
-}
 
 
 
@@ -197,27 +191,37 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-tyler{
-    height: 80%;
-    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 50%;
 }
 
 .text-tyler{
     height: 80%;
-    width: 40%;
+    width: 50%;
     color: rgb(0, 0, 0);
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+}
+
+.text-tyler .content {
+    height: 100%;
+    width: 80%;
 }
 
 .titulos-home {
     display: flex;
-    align-items: center;
+    align-self: self-start;
     justify-content: space-between;
 }
 
 .title-name-text {
-    font-size: 50px;
-    margin-bottom: 30px;
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
 /* .title-artist-text {
@@ -225,7 +229,7 @@ li:hover ul.dropdown-albuns {
 } */
 
 .body-text {
-    font-size: 20px;
+    font-size: 1.2em;
     text-align: justify;
 }
 /* Home */
@@ -233,7 +237,9 @@ li:hover ul.dropdown-albuns {
 
 
 
-
+.album-cover {
+    height: 550px;
+}
 
 
 /* Goblin */
@@ -252,7 +258,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-goblin img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px rgb(36, 36, 36);
 }
 
@@ -266,7 +271,6 @@ li:hover ul.dropdown-albuns {
     color: white;
 }
 /* Goblin */
-
 
 
 
@@ -287,7 +291,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-wolf img{
-    height: 550px;
     box-shadow: 5px 5px 5px rgb(43, 118, 131);
 }
 
@@ -318,7 +321,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-cherrybomb img{
-    height: 550px;
     box-shadow: 5px 5px 5px rgb(128, 138, 140);
 }
 
@@ -350,7 +352,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-flowerboy img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px #bc6813;
 }
 
@@ -383,7 +384,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-igor img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px #d090a3;
 }
 
@@ -416,7 +416,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-callmeifyougetlost img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px #ada27e;
 }
 
@@ -449,7 +448,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-callmeifyougetlost_2 img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px #44929b;
 }
 
@@ -483,7 +481,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-chromakopia img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px rgb(58, 59, 59);
 }
 
@@ -495,6 +492,9 @@ li:hover ul.dropdown-albuns {
 .text-chromakopia {
     width: 40%;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 /* Chromakopia */
 
@@ -518,7 +518,6 @@ li:hover ul.dropdown-albuns {
 }
 
 .img-donttaptheglass img{
-    height: 550px;
     box-shadow: 5px 5px 5px 5px #6a080a;
 }
 
@@ -532,3 +531,43 @@ li:hover ul.dropdown-albuns {
     color: white;
 }
 /* Don't Tap The Glass */
+
+
+.degrade {
+    height: 50px;
+}
+.degrade-home-goblin {
+    background: linear-gradient(0deg, rgba(40, 43, 48, 1) 0%, rgba(252, 238, 168, 1) 50%);
+}
+
+.degrade-goblin-wolf {
+    background: linear-gradient(0deg, rgba(122, 182, 227, 1) 0%, rgba(40, 43, 48, 1) 50%);
+}
+
+.degrade-wolf-cherry {
+    background: linear-gradient(0deg,rgba(171, 189, 188, 1) 0%, rgba(122, 182, 227, 1) 50%);
+}
+
+.degrade-cherry-flower {
+    background: linear-gradient(0deg,rgba(252, 141, 27, 1) 0%, rgba(171, 189, 188, 1) 50%);
+}
+
+.degrade-flower-igor {
+    background: linear-gradient(0deg,rgba(243, 181, 200, 1) 0%, rgba(252, 141, 27, 1) 50%);
+}
+
+.degrade-igor-call1 {
+    background: linear-gradient(0deg,rgba(231, 218, 176, 1) 0%, rgba(243, 181, 200, 1) 50%);
+}
+
+.degrade-call1-call2 {
+    background: linear-gradient(0deg,rgba(99, 179, 188, 1) 0%, rgba(231, 218, 176, 1) 50%);
+}
+
+.degrade-call2-chroma {
+    background: linear-gradient(0deg,rgba(26, 26, 26, 1) 0%, rgba(99, 179, 188, 1) 50%);
+}
+
+.degrade-chroma-dont{
+    background: linear-gradient(0deg,rgba(198, 32, 34, 1) 0%, rgba(26, 26, 26, 1) 50%);
+}
