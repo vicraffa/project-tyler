@@ -6,6 +6,8 @@
     scroll-behavior: smooth;
 }
 
+
+
 body {
     height: 100vh;
     width: 100%;
@@ -56,8 +58,9 @@ body {
 }
 
 #acessar a {
-    height: 35px;
-    width: 100px;
+    height: 45px;
+    width: 120px;
+    font-family: 'Heavitas';
     background-color: black;
     border-radius: 5px;
     color: white;
@@ -150,6 +153,10 @@ li:hover ul.dropdown-albuns {
     width: 20vw;
 }
 
+.nav a {
+    font-family: 'Heavitas';
+
+}
 
 
 
@@ -160,7 +167,6 @@ li:hover ul.dropdown-albuns {
     margin-top: 8vh;
     display: block;
 }
-
 
 
 .inicio {
@@ -220,16 +226,12 @@ li:hover ul.dropdown-albuns {
 }
 
 .title-name-text {
-    font-size: 2em;
+    font-size: 2.4em;
     margin-bottom: 10px;
 }
 
-/* .title-artist-text {
-    font-size: 40px;
-} */
-
 .body-text {
-    font-size: 1.2em;
+    font-size: 1.4em;
     text-align: justify;
 }
 /* Home */
@@ -238,13 +240,71 @@ li:hover ul.dropdown-albuns {
 
 
 .album-cover {
-    height: 550px;
+    display: block;
+    width: 60%;
+    height: auto;
+}
+
+.title-album {
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+.text-album {
+    font-size: 1.3em;
+    width: 70%;
+    text-align: justify;
+}
+.text-album strong{
+    font-size: 1.2em;
+}
+
+.cover-session {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.8em;
+}
+
+.cover-session div {
+    width: 60%;
+}
+
+.cover-session img:hover{
+    scale: 1.01;
+    transition: 0.3s;
+}
+
+.text-session {
+    width: 50%;
+    height: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recomendacao {
+    display: flex;
+    width: 70%;
+    height: 10%;
+    flex-direction: column;
+}
+
+.recomendacao span{
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 
 /* Goblin */
 .goblin {
-    background-color: #282b30;
+    background: url(../assets/goblin-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -253,22 +313,29 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-goblin {
-    width: 40%;
-}
-
 .img-goblin img{
     box-shadow: 5px 5px 5px 5px rgb(36, 36, 36);
 }
 
-.img-goblin img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.goblin .cover-session span {
+    font-family: 'Cooper Five';
+    color: #ed008c;
 }
 
-.text-goblin {
-    width: 40%;
-    color: white;
+.goblin .cover-session .recomendacao span {
+        font-size: 0.5em;
+        font-family: 'Cooper Five';
+        color: #ffffff;
+}
+
+.goblin .text-album strong {
+    font-family: 'Cooper Five';
+    color: #ed008c;
+}
+
+.goblin .title-album {
+    font-family: 'Cooper Five';
+    color: #ed008c;
 }
 /* Goblin */
 
@@ -277,69 +344,86 @@ li:hover ul.dropdown-albuns {
 
 /* Wolf */
 .wolf {
-    background-color: #7ab6e3;
+    background: url(../assets/wolf-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.img-wolf {
-    width: 40%;
 }
 
 .img-wolf img{
     box-shadow: 5px 5px 5px rgb(43, 118, 131);
 }
 
-.img-wolf img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.wolf .cover-session span {
+    font-family: 'Arial';
+    color: white;
 }
 
-.text-wolf {
-    width: 40%;
+.wolf .text-album strong {
+    font-family: 'Arial';
+    color: white;
+}
+
+.wolf .text-album, .text-wolf .recomendacao {
+    color: black;
+}
+
+.wolf .title-album {
+    font-family: 'Arial';
 }
 /* Wolf */
 
 
 /* Cherry Bomb */
 .cherrybomb {
-    background-color: #abbdbc;
+    background: url(../assets/cherrybomb-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.img-cherrybomb {
-    width: 40%;
 }
 
 .img-cherrybomb img{
     box-shadow: 5px 5px 5px rgb(128, 138, 140);
 }
 
-.img-cherrybomb img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.cherrybomb .cover-session span {
+    font-family: 'KG Summer Sunshine Blackout';
+    color: #992f3f;
 }
 
-.text-cherrybomb {
-    width: 40%;
+.cherrybomb .text-album strong {
+    font-family: 'KG Summer Sunshine Blackout';
+    color: #992f3f;
+    font-size: 0.95em;
+}
+
+.cherrybomb .text-album, .text-cherrybomb .recomendacao {
+    color: black;
+}
+
+.cherrybomb .text-session {
+    height: 80%;
 }
 /* Cherry Bomb */
 
 
 
 /* Flower Boy */
-.floweboy {
-    background-color: #fc8d1b;
-    height: 100vh;
+.flowerboy {
+    background: url(../assets/flowerboy-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;    
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -347,22 +431,27 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-flowerboy {
-    width: 40%;
-}
-
 .img-flowerboy img{
-    box-shadow: 5px 5px 5px 5px #bc6813;
+    box-shadow: 5px 5px 5px 5px #37391a;
 }
 
-.img-flowerboy img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.flowerboy .cover-session span {
+    font-family: 'Arial Black';
+    color: #fbb931;
 }
 
-.text-flowerboy {
-    width: 40%;
+.flowerboy .text-album strong {
+    font-family: 'Arial Black';
+    color: #fbb931;
+}
+
+.flowerboy .text-album, .text-flowerboy .recomendacao {
     color: white;
+}
+
+.flowerboy .title-album {
+    font-family: 'Arial Black';
+    color: #fbb931;
 }
 /* Flower Boy */
 
@@ -370,7 +459,7 @@ li:hover ul.dropdown-albuns {
 
 /* Igor */
 .igor {
-    background-color: #f3b5c8;
+    background: url(../assets/igor-texture.png);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -379,22 +468,31 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-igor {
-    width: 40%;
-}
-
 .img-igor img{
     box-shadow: 5px 5px 5px 5px #d090a3;
 }
 
-.img-igor img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.igor .cover-session span {
+    font-family: 'Igor';
+    color: black;
 }
 
-.text-igor {
-    width: 40%;
-    color: white;
+.igor .text-album strong {
+    font-family: 'Igor';
+}
+
+.igor .text-album {
+    font-size: 1.4em;
+}
+
+.igor .text-album, .text-igor .recomendacao {
+    color: black;
+}
+
+.igor .title-album {
+    font-family: 'Igor';
+    color: black;
+    font-size: 4em;
 }
 /* Igor */
 
@@ -402,7 +500,9 @@ li:hover ul.dropdown-albuns {
 
 /* Call Me If You Get Lost */
 .callmeifyougetlost {
-    background-color: #e7dab0;
+    background: url(../assets/passport-texture.png);
+        background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -411,22 +511,32 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-callmeifyougetlost {
-    width: 40%;
-}
-
 .img-callmeifyougetlost img{
     box-shadow: 5px 5px 5px 5px #ada27e;
 }
 
-.img-callmeifyougetlost img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.callmeifyougetlost .cover-session span {
+    font-family: 'Heavitas';
+    color: #432e09;
 }
 
-.text-callmeifyougetlost {
-    width: 40%;
-    color: white;
+.callmeifyougetlost .title-album {
+    font-family: 'Heavitas';
+}
+
+.callmeifyougetlost .text-album strong {
+    font-family: 'Heavitas';
+    color: #432e09;
+}
+
+.callmeifyougetlost .text-album, .callmeifyougetlost .recomendacao {
+color: black;
+}
+
+.callmeifyougetlost .title-album {
+    font-family: 'Heavitas';
+    color: #432e09;
+    font-size: 4em;
 }
 /* Call Me If You Get Lost */
 
@@ -434,7 +544,9 @@ li:hover ul.dropdown-albuns {
 
 /* Call Me If You Get Lost: The Estate Sale */
 .callmeifyougetlost_2 {
-    background-color: #63b3bc;
+    background: url(../assets/blue-suede-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -443,23 +555,33 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-callmeifyougetlost_2 {
-    width: 40%;
-}
-
 .img-callmeifyougetlost_2 img{
     box-shadow: 5px 5px 5px 5px #44929b;
 }
 
-.img-callmeifyougetlost_2 img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.callmeifyougetlost_2 .cover-session span {
+    font-family: 'Heavitas';
+    color: #432e09;
 }
 
-.text-callmeifyougetlost_2 {
-    width: 40%;
-    color: white;
+.callmeifyougetlost_2 .title-album {
+    font-family: 'Heavitas';
+    font-size: 2.5em;
 }
+
+.callmeifyougetlost_2 .title-theestatesale{
+    font-family: 'Buinton';
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #432e09;
+}
+
+.callmeifyougetlost_2 .text-album strong {
+    font-family: 'Heavitas';
+    color: #432e09;
+}
+
+
 /* Call Me If You Get Lost: The Estate Sale */
 
 
@@ -467,7 +589,9 @@ li:hover ul.dropdown-albuns {
 
 /* Chromakopia */
 .chromakopia {
-    background-color: #1a1a1a;
+    background: url(../assets/chromakopia-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -476,25 +600,24 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-chromakopia {
-    width: 40%;
-}
-
 .img-chromakopia img{
     box-shadow: 5px 5px 5px 5px rgb(58, 59, 59);
 }
 
-.img-chromakopia img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.chromakopia .cover-session span {
+    font-family: 'Poleno SemiBold';
+    color: #12793c;
 }
 
-.text-chromakopia {
-    width: 40%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.chromakopia .text-album strong {
+    font-family: 'Poleno SemiBold';
+    color: #12793c;
+}
+
+.chromakopia .title-album {
+    font-family: 'Igor';
+    color: #12793c;
+    font-size: 4em;
 }
 /* Chromakopia */
 
@@ -504,7 +627,9 @@ li:hover ul.dropdown-albuns {
 
 /* Don't Tap The Glass */
 .donttaptheglass {
-    background-color: #c62022;
+    background: url(../assets/textura-de-couro-branco.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -513,61 +638,96 @@ li:hover ul.dropdown-albuns {
     align-items: center;
 }
 
-.img-donttaptheglass {
-    width: 40%;
-}
-
 .img-donttaptheglass img{
-    box-shadow: 5px 5px 5px 5px #6a080a;
+    box-shadow: 5px 5px 5px 5px #836565;
 }
 
-.img-donttaptheglass img:hover{
-    scale: 1.01;
-    transition: 0.3s;
+.donttaptheglass .cover-session span {
+    font-family: 'DTTG';
+    color: #ba1e21;
 }
 
-.text-donttaptheglass {
-    width: 40%;
-    color: white;
+.donttaptheglass .text-album strong {
+    font-family: 'DTTG';
+    color: #ba1e21;
+}
+
+.donttaptheglass .text-album, .donttaptheglass .recomendacao {
+    color: black;
+}
+
+.donttaptheglass .title-album {
+    font-family: 'DTTG';
+    color: #ba1e21;
+    font-size: 4em;
 }
 /* Don't Tap The Glass */
 
 
-.degrade {
-    height: 50px;
-}
-.degrade-home-goblin {
-    background: linear-gradient(0deg, rgba(40, 43, 48, 1) 0%, rgba(252, 238, 168, 1) 50%);
+footer {
+    background-color: #fceea8;
+    height: 15vh;
 }
 
-.degrade-goblin-wolf {
-    background: linear-gradient(0deg, rgba(122, 182, 227, 1) 0%, rgba(40, 43, 48, 1) 50%);
+
+@font-face {
+    font-family: 'Spicy Sale';
+    src: url(../assets/fonts/Spicy\ Sale.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.degrade-wolf-cherry {
-    background: linear-gradient(0deg,rgba(171, 189, 188, 1) 0%, rgba(122, 182, 227, 1) 50%);
+@font-face {
+    font-family: 'Heavitas';
+    src: url(../assets/fonts/Heavitas.ttf) format('truetype');
 }
 
-.degrade-cherry-flower {
-    background: linear-gradient(0deg,rgba(252, 141, 27, 1) 0%, rgba(171, 189, 188, 1) 50%);
+@font-face {
+    font-family: 'Retro Vintage';
+    src: url(../assets/fonts/Retro\ Vintage.ttf) format('truetype');
 }
 
-.degrade-flower-igor {
-    background: linear-gradient(0deg,rgba(243, 181, 200, 1) 0%, rgba(252, 141, 27, 1) 50%);
+@font-face {
+    font-family: 'Cooper Five';
+    src: url(../assets/fonts/Cooper\ Five.otf) format('opentype');
 }
 
-.degrade-igor-call1 {
-    background: linear-gradient(0deg,rgba(231, 218, 176, 1) 0%, rgba(243, 181, 200, 1) 50%);
+@font-face {
+    font-family: 'Behove';
+    src: url(../assets/fonts/Behove.otf) format('opentype');
 }
 
-.degrade-call1-call2 {
-    background: linear-gradient(0deg,rgba(99, 179, 188, 1) 0%, rgba(231, 218, 176, 1) 50%);
+@font-face {
+    font-family: 'Buinton';
+    src: url(../assets/fonts/buinton.otf) format('opentype');
 }
 
-.degrade-call2-chroma {
-    background: linear-gradient(0deg,rgba(26, 26, 26, 1) 0%, rgba(99, 179, 188, 1) 50%);
+@font-face {
+    font-family: 'Igor';
+    src: url(../assets/fonts/IGOR.ttf) format('truetype');
 }
 
-.degrade-chroma-dont{
-    background: linear-gradient(0deg,rgba(198, 32, 34, 1) 0%, rgba(26, 26, 26, 1) 50%);
+@font-face {
+    font-family: 'Poleno SemiBold';
+    src: url(../assets/fonts/Poleno\ SemiBold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'DTTG';
+    src: url(../assets/fonts/DTTG.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'KG Summer Sunshine';
+    src: url(../assets/fonts/KGSummerSunshine.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'KG Summer Sunshine Blackout';
+    src: url(../assets/fonts/KGSummerSunshineBlackout.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'KG Summer Sunshine Shadow';
+    src: url(../assets/fonts/KGSummerSunshineShadow.ttf) format('truetype');
 }
