@@ -93,16 +93,7 @@ ul li.albuns-li {
     margin-left: 5px;
 }
 
-ul li.nav-home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 8vw;
-}
-
-
-ul li.nav-sobre{
+ul li.nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +242,7 @@ li:hover ul.dropdown-albuns {
 }
 
 .text-album {
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 70%;
     text-align: justify;
 }
