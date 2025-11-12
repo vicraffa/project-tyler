@@ -13,11 +13,16 @@ body {
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .black {
     color: rgb(0, 0, 0);
 }
 
 .navbar {
+    z-index: 10;
     position: fixed;
     top: 0;
     background-color: rgba(231, 231, 231, 0.3);
@@ -153,13 +158,13 @@ main {
 }
 
 .sobre-mim-tecnologia {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     display: flex;
 }
 
 .sobre-mim-tyler {
-    height: 100vh;
+    height: 95vh;
     width: 100%;
     display: flex;
 }
@@ -198,7 +203,7 @@ main {
 
 .texto .sub-title-sobre {
     font-family: 'Heavitas';
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #000000;
 }
 
@@ -228,18 +233,18 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 60%;
+    height: 70%;
     width: 70%;
     border-radius: 50%;
     transition: 0.5s ease;
 }
 
 .imagem-1:hover {
-    background-image: url(../assets/undefined\ \(1\).jpeg);
+    background-image: url(../assets/me-kid.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 60%;
+    height: 70%;
     width: 70%;
     border-radius: 50%;
 }
@@ -249,46 +254,98 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 60%;
+    height: 65%;
     width: 70%;
     border-radius: 50%;
     transition: 0.5s ease;
 }
 
 .imagem-2:hover {
-    background-image: url(../assets/undefined\ \(1\).jpeg);
+    background-image: url(../assets/../assets/me-kid.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 60%;
+    height: 65%;
     width: 70%;
     border-radius: 50%;
+}
+
+.saiba-mais{
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    animation: balanco 1.5s infinite !important;
+
+}
+
+.saiba-mais a {
+    font-size: 2em;
+    font-family: 'Heavitas';
+    text-decoration: none;
+    color: black;
+}
+
+.sessao-tecnologia {
+    width: 80%;
+}
+
+.tecnologias {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.sessao-tecnologia h1 {
+    padding-top: 40px;
+    padding-bottom: 15px;
+    font-family: 'Heavitas';
+}
+
+.tecnologias img {
+    height: 100px;
+    width: 100px;
+}
+
+.tecnologias .mysql  {
+    height: 100px;
+    width: 150px;
+}
+
+.sessao-redes-sociais {
+    width: 80%;
+}
+
+.redes-sociais {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.sessao-redes-sociais h1 {
+    padding-top: 40px;
+    padding-bottom: 15px;
+    font-family: 'Heavitas';
+}
+
+.sessao-redes-sociais img {
+    height: 60px;
+    width: 60px;
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes balanco {
+    0% { transform: translateY(2) }
+    50% { transform: translateY(15px) }
+    100% { transform: translateY(2) }
+}
 
 
 
