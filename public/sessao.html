@@ -5,31 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar</title>
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="styles/sessao.css">
 </head>
 
 <body>
-    <main>
-        <div class="login">
-            <div>
-                Login
+    <div id="main" class="main">
+        <div class="formulario">
+            <div class="login">
+                <div class="title-login">
+                    <h1>Login</h1>
+                </div>
+                <div class="content-login">
+                    <input type="text" id="input_login_nickname" placeholder="Nickname">
+                    <br>
+                    <div class="senha">
+                        <input type="password" id="input_login_senha" placeholder="Senha">
+                        <img onclick="mostrarSenha('login')" id="imagem_senha_login" src="assets/mostrar-senha.png"
+                            height="80%">
+                    </div>
+                    <br>
+                    <button id="entrar" onclick="validar()">Entrar</button>
+                    <br>
+                    <span onclick="transicao('cadastro')">Ainda não possui conta? Registre-se</span>
+                </div>
             </div>
-            <div>
-                
-            </div>
-        </div>
 
-        <div class="imagem">
-            Cadastro
+
+            <div class="cadastro">
+                <div class="title-cadastro">
+                    <h1>Cadastre-se</h1>
+                </div>
+                <div class="content-cadastro">
+                    <input type="text" id="input_cadastro_nickname" placeholder="Nickname">
+                    <br>
+                    <input type="text" id="input_cadastro_email" placeholder="Email">
+                    <br>
+                    <div class="senha">
+                        <input type="password" id="input_cadastro_senha" placeholder="Senha">
+                        <img onclick="mostrarSenha('cadastro')" id="imagem_senha_cadastro" src="assets/mostrar-senha.png"
+                            height="80%">
+                    </div>
+                    <br>
+                    <button onclick="cadastrar()">Cadastrar</button>
+                    <br>
+                    <span onclick="transicao('login')">Já possui login? Entre</span>
+                </div>
+            </div>
+
+
+            <div class="img">
+
+            </div>
         </div>
-    </main>
+    </div>
 </body>
 
 </html>
 <script>
+    const main = document.querySelector('#main')
+    const formulario = document.querySelector('.formulario')
+    const senhaLogin = document.querySelector('#input_login_senha')
+    const imagemSenhaLogin = document.querySelector('#imagem_senha_login')
+    const senhaCadastro = document.querySelector('#input_cadastro_senha')
+    const imagemSenhaCadastro = document.querySelector('#imagem_senha_cadastro')
 
+    function transicao(funcao) {
+        if (funcao == 'cadastro') {
+            // main.style.display = 'none';
+            formulario.classList.add('.ativo')
+        }
+        if (funcao == 'login') {
+            // main.style.display = 'none';
+            formulario.classList.remove('.ativo')
+        }
+    }
+
+    function mostrarSenha(pagina) {
+        if(pagina == 'login'){
+            if (senhaLogin.type == 'password') {
+            senhaLogin.type = 'text';
+            imagemSenhaLogin.src = 'assets/esconder-senha.png';
+            return;
+            }
+            if (senhaLogin.type == 'text') {
+                senhaLogin.type = 'password';
+                imagemSenhaLogin.src = 'assets/mostrar-senha.png';
+            }
+        }
+        if(pagina == 'cadastro'){
+            if (senhaCadastro.type == 'password') {
+            senhaCadastro.type = 'text';
+            imagemSenhaCadastro.src = 'assets/esconder-senha.png';
+            return;
+            }
+            if (senhaCadastro.type == 'text') {
+                senhaCadastro.type = 'password';
+                imagemSenhaCadastro.src = 'assets/mostrar-senha.png';
+            }
+        }
+    }
 </script>

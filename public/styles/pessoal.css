@@ -18,6 +18,7 @@ body {
 }
 
 .navbar {
+    position: fixed;
     top: 0;
     background-color: rgba(231, 231, 231, 0.3);
     backdrop-filter: blur(45px);
@@ -145,13 +146,23 @@ li:hover ul.dropdown-albuns {
 }
 
 main {
-    height: 92vh;
+    height: 200vh;
     background: url(../assets/igor-texture.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.sobre-mim-tecnologia {
+    height: 100vh;
+    width: 100%;
     display: flex;
 }
 
+.sobre-mim-tyler {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
 
 .texto {
     width: 70%;
@@ -185,6 +196,20 @@ main {
     color: #ffffff;
 }
 
+.texto .sub-title-sobre {
+    font-family: 'Heavitas';
+    font-size: 1rem;
+    color: #000000;
+}
+
+.sobre-mim-tyler .texto .nome-sobre {
+    color: #000000;
+}
+
+.sobre-mim-tyler .texto .sub-title-sobre, .sobre-mim-tyler .texto .title-sobre {
+    color: #ffffff;
+}
+
 .text-sobre {
     font-family: 'Arial';
     font-size: 1.6rem;
@@ -198,14 +223,47 @@ main {
     justify-content: center;
 }
 
-.imagem img {
-    width: 50%;
+.imagem-1 {
+    background-image: url(../assets/img_victor.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60%;
+    width: 70%;
+    border-radius: 50%;
+    transition: 0.5s ease;
+}
+
+.imagem-1:hover {
+    background-image: url(../assets/undefined\ \(1\).jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60%;
+    width: 70%;
     border-radius: 50%;
 }
 
+.imagem-2 {
+    background-image: url(../assets/img_victor.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60%;
+    width: 70%;
+    border-radius: 50%;
+    transition: 0.5s ease;
+}
 
-
-
+.imagem-2:hover {
+    background-image: url(../assets/undefined\ \(1\).jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60%;
+    width: 70%;
+    border-radius: 50%;
+}
 
 
 

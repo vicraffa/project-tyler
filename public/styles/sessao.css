@@ -1,7 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,23 +11,216 @@ body {
     width: 100vw;
 }
 
-main {
-    width: 100%;
+.main {
+    background-color: rgb(164, 171, 171);
     height: 100%;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.formulario {
+    background-color: rgb(255, 255, 255);
+    height: 70%;
+    width: 60%;
+    border-radius: 50px;
+    display: flex;
+    position: relative;
 }
 
 .login {
-    height: 100%;
+    border-radius: 50px 0px 0px 50px;
     width: 50%;
-    background-color: aqua;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.imagem {
-    height: 100%;
+.cadastro {
+    border-radius: 0px 50px 50px 0px;
     width: 50%;
-    background: url(../assets/igor.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
+
+.img {
+    border-radius: 0px 50px 50px 0px;
+    background-color: rgb(74, 68, 133);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    right: 0;
+}
+
+
+/* Estilização Login */
+.title-login {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-login {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login div h1 {
+    font-size: 4em;
+    margin-bottom: 20%;
+}
+
+.login div input{
+    border: none;
+    width: 65%;
+    height: 15%;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1em;
+    background-color: #d2d2d2;
+}
+
+.login .senha {
+    border-radius: 10px;
+    height: 15%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    background-color: #d2d2d2;
+    padding-right: 10px;
+}
+
+.login .senha input {
+    height: 100%;
+    width: 90%;
+}
+
+.login .senha img {
+    cursor: pointer;
+}
+
+.login div button {
+    cursor: pointer;
+    width: 65%;
+    height: 15%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(94, 77, 122);
+    color: white;
+}
+
+.login div button:hover {
+    background-color: rgb(65, 36, 110);
+}
+
+.login span {
+    cursor: pointer;
+}
+/* Estilização Login */
+
+
+
+
+
+
+
+
+
+/* Estilização Cadastro */
+.title-cadastro {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-cadastro {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cadastro div h1 {
+    font-size: 4em;
+    margin-bottom: 20%;
+}
+
+.cadastro div input{
+    border: none;
+    width: 65%;
+    height: 15%;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    background-color: #d2d2d2;
+    font-size: 1em;
+}
+
+.cadastro .senha {
+    border-radius: 10px;
+    height: 15%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    background-color: #d2d2d2;
+    padding-right: 10px;
+}
+
+.cadastro .senha input {
+    height: 100%;
+    width: 90%;
+}
+
+.cadastro .senha img {
+    cursor: pointer;
+}
+
+.cadastro div button {
+    cursor: pointer;
+    width: 65%;
+    height: 15%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(94, 77, 122);
+    color: white;
+}
+
+.cadastro div button:hover {
+    background-color: rgb(65, 36, 110);
+}
+
+.cadastro span {
+    cursor: pointer;
+}
+/* Estilização Cadastro */
+
+
+
+
+/* Animação */
+
+/* Animação */
