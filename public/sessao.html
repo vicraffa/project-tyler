@@ -10,6 +10,12 @@
 
 <body>
     <div id="main" class="main">
+        <div class="site">
+            <a href="index.html"><img width="25%" src="assets/tyler-igor.png.png"></a>
+        </div>
+        <div class="site2">
+            <a href="index.html"><img width="25%" src="assets/tyler-igor.png.png"></a>
+        </div>
         <div class="formulario">
             <div class="login">
                 <div class="title-login">
@@ -18,15 +24,19 @@
                 <div class="content-login">
                     <input type="text" id="input_login_nickname" placeholder="Nickname">
                     <br>
+                    <div id="msg_login_nick"></div>
+                    <br>
                     <div class="senha">
                         <input type="password" id="input_login_senha" placeholder="Senha">
                         <img onclick="mostrarSenha('login')" id="imagem_senha_login" src="assets/mostrar-senha.png"
                             height="80%">
                     </div>
                     <br>
-                    <button id="entrar" onclick="validar()">Entrar</button>
+                    <div id="msg_login_senha"></div>
                     <br>
-                    <span onclick="transicao('cadastro')">Ainda não possui conta? Registre-se</span>
+                    <button id="entrar" onclick="entrar()">Entrar</button>
+                    <br>
+                    <span class="transicao" onclick="transicao('cadastro')">Ainda não possui conta? Registre-se</span>
                 </div>
             </div>
 
@@ -38,17 +48,23 @@
                 <div class="content-cadastro">
                     <input type="text" id="input_cadastro_nickname" placeholder="Nickname">
                     <br>
-                    <input type="text" id="input_cadastro_email" placeholder="Email">
+                    <div id="msg_cadastro_nick"></div>
+                    <br>
+                    <input oninput="validarEmail()" type="text" id="input_cadastro_email" placeholder="Email">
+                    <br>
+                    <div id="msg_cadastro_email"></div>
                     <br>
                     <div class="senha">
-                        <input type="password" id="input_cadastro_senha" placeholder="Senha">
-                        <img onclick="mostrarSenha('cadastro')" id="imagem_senha_cadastro" src="assets/mostrar-senha.png"
-                            height="80%">
+                        <input oninput="validarSenha()" type="password" id="input_cadastro_senha" placeholder="Senha">
+                        <img onclick="mostrarSenha('cadastro')" id="imagem_senha_cadastro"
+                            src="assets/mostrar-senha.png" height="80%">
                     </div>
+                    <br>
+                    <div id="msg_cadastro_senha"></div>
                     <br>
                     <button onclick="cadastrar()">Cadastrar</button>
                     <br>
-                    <span onclick="transicao('login')">Já possui login? Entre</span>
+                    <span class="transicao" onclick="transicao('login')">Já possui login? Entre</span>
                 </div>
             </div>
 
@@ -62,46 +78,150 @@
 
 </html>
 <script>
-    const main = document.querySelector('#main')
+
+    const main = document.getElementById('main')
     const formulario = document.querySelector('.formulario')
-    const senhaLogin = document.querySelector('#input_login_senha')
-    const imagemSenhaLogin = document.querySelector('#imagem_senha_login')
-    const senhaCadastro = document.querySelector('#input_cadastro_senha')
-    const imagemSenhaCadastro = document.querySelector('#imagem_senha_cadastro')
+    const imagemSenhaLogin = document.getElementById('imagem_senha_login')
+    const imagemSenhaCadastro = document.getElementById('imagem_senha_cadastro')
+    const senhaLogin = document.getElementById("input_login_senha")
+    const senhaCadastro = document.getElementById("input_cadastro_senha")
+
+    // Listas dos parâmetros
+    var listaCaracteres = ['!', '@', '#', '$', '%', '&', '*'];
+    var listaNumeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+
+    // Variáveis de validação de cadastro
+    var emailValido = false;
+    var senhaValida = false;
 
     function transicao(funcao) {
         if (funcao == 'cadastro') {
-            // main.style.display = 'none';
-            formulario.classList.add('.ativo')
+            formulario.classList.add('ativo')
         }
         if (funcao == 'login') {
-            // main.style.display = 'none';
-            formulario.classList.remove('.ativo')
+            formulario.classList.remove('ativo')
         }
+
+        document.querySelectorAll("input").forEach(input => {
+            input.value = "";
+        });
     }
 
     function mostrarSenha(pagina) {
-        if(pagina == 'login'){
+        if (pagina == 'login') {
             if (senhaLogin.type == 'password') {
-            senhaLogin.type = 'text';
-            imagemSenhaLogin.src = 'assets/esconder-senha.png';
-            return;
+                senhaLogin.type = 'text';
+                imagemSenhaLogin.src = 'assets/esconder-senha.png';
+                return;
             }
             if (senhaLogin.type == 'text') {
                 senhaLogin.type = 'password';
                 imagemSenhaLogin.src = 'assets/mostrar-senha.png';
             }
         }
-        if(pagina == 'cadastro'){
+        if (pagina == 'cadastro') {
             if (senhaCadastro.type == 'password') {
-            senhaCadastro.type = 'text';
-            imagemSenhaCadastro.src = 'assets/esconder-senha.png';
-            return;
+                senhaCadastro.type = 'text';
+                imagemSenhaCadastro.src = 'assets/esconder-senha.png';
+                return;
             }
             if (senhaCadastro.type == 'text') {
                 senhaCadastro.type = 'password';
                 imagemSenhaCadastro.src = 'assets/mostrar-senha.png';
             }
         }
+    }
+
+
+
+    function cadastrar() {
+        // Validação dos tokens cadastrados no Banco de Dados + validações dos campos preechidos para efetuar cadastro
+        if (senhaValida && emailValido) {
+            setTimeout(transicao('login'), 2000)
+        } else {
+            alert('Cadastro Inválido! Confira os campos');
+        }
+    }
+
+    function validarEmail() {
+        // Variável do campo email
+        let email = input_cadastro_email.value;
+
+        if (!email.includes('@')) {
+            msg_cadastro_email.innerHTML = '<span style="color:red">Incluir @</span>'
+        } else {
+            emailValido = true;
+            msg_cadastro_email.innerHTML = '';
+        }
+
+        if (email == '') {
+            msg_cadastro_email.innerHTML = '';
+        }
+    }
+
+    function validarSenha() {
+        // Variável do campo senha
+        var senha = input_cadastro_senha.value;
+
+        // Variáveis de configuração
+        var tamanhoSenha = senha.length;
+        var mensagem = "";
+
+        // Valores booleanos com padrões de senha
+        var tamanhoValido = false;
+        var caractereValido = false;
+        var numeroValido = false;
+        var minusculoValido = false;
+        var maiusculoValido = false;
+
+        // Mínimo 8 caracteres
+        if (tamanhoSenha < 8) {
+            mensagem += `<span style="color:red"> 8 caracteres </span><br>`;
+        } else {
+            tamanhoValido = true;
+        }
+
+        // Mínimo um caractere especial
+        for (let i = 0; i < listaCaracteres.length ; i++) {
+            if (senha.includes(listaCaracteres[i])) {
+                caractereValido = true;
+            }
+        } if (!caractereValido) {
+            mensagem += `<span style="color:red"> 1 caractere especial </span><br>`;
+        }
+
+        // Mínimo um número
+        for (let i = 0; i < listaNumeros.length; i++) {
+            if (senha.includes(listaNumeros[i])) {
+                numeroValido = true;
+            }
+        } if (!numeroValido) {
+            mensagem += `<span style="color:red"> 1 número</span><br>`;
+        }
+
+        // Mínimo uma letra maiúscula
+        if (senha == senha.toLowerCase()) {
+            mensagem += '<span style="color:red"> 1 Letra Maiúscula</span><br>';
+        } else {
+            maiusculoValido = true;
+        }
+
+        // Mínimo uma letra minúscula
+        if (senha == senha.toUpperCase()) {
+            mensagem += '<span style="color:red">1 Letra Minúscula</span>';
+        } else {
+            minusculoValido = true;
+        }
+
+        msg_cadastro_senha.innerHTML = mensagem;
+
+        // Validação geral 
+        if (tamanhoValido && caractereValido && numeroValido && maiusculoValido && minusculoValido) {
+            senhaValida = true;
+        }
+    }
+
+    function entrar () {
+        window.location.href = 'dashboard.html';
     }
 </script>

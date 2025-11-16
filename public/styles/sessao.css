@@ -6,13 +6,30 @@
 }
 
 body {
-    background-color: #fceea8;
     height: 100vh;
     width: 100vw;
 }
 
+.site {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+.site2{
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    right: 0;
+}
+
+.site2 a{
+    display: flex;
+    justify-content: flex-end;
+}
+
 .main {
-    background-color: rgb(164, 171, 171);
     height: 100%;
     width: 100%;
     display: flex;
@@ -22,15 +39,13 @@ body {
 
 .formulario {
     background-color: rgb(255, 255, 255);
-    height: 70%;
-    width: 60%;
-    border-radius: 50px;
+    height: 100%;
+    width: 100%;
     display: flex;
     position: relative;
 }
 
 .login {
-    border-radius: 50px 0px 0px 50px;
     width: 50%;
     height: 100%;
     position: absolute;
@@ -43,7 +58,6 @@ body {
 }
 
 .cadastro {
-    border-radius: 0px 50px 50px 0px;
     width: 50%;
     height: 100%;
     position: absolute;
@@ -56,13 +70,18 @@ body {
 }
 
 .img {
-    border-radius: 0px 50px 50px 0px;
-    background-color: rgb(74, 68, 133);
+    border-radius: 30px 0px 0px 30px;
+    background: url(../assets/igor-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 50%;
     height: 100%;
     position: absolute;
-    z-index: 3;
+    z-index: 250;
     right: 0;
+    transform: translateX(0);
+    transition:  0.4s transform ease !important;
 }
 
 
@@ -86,6 +105,7 @@ body {
 .login div h1 {
     font-size: 4em;
     margin-bottom: 20%;
+    font-family: 'Heavitas';
 }
 
 .login div input{
@@ -95,7 +115,7 @@ body {
     border-radius: 10px;
     outline: none;
     padding-left: 10px;
-    font-size: 1em;
+    font-size: 1.2em;
     background-color: #d2d2d2;
 }
 
@@ -105,7 +125,6 @@ body {
     width: 65%;
     display: flex;
     align-items: center;
-    background-color: white;
     background-color: #d2d2d2;
     padding-right: 10px;
 }
@@ -125,12 +144,15 @@ body {
     height: 15%;
     border-radius: 10px;
     border: none;
-    background-color: rgb(94, 77, 122);
-    color: white;
+    background-color: #f8b5c6;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Heavitas';
 }
 
 .login div button:hover {
-    background-color: rgb(65, 36, 110);
+    background-color: #b36176;
 }
 
 .login span {
@@ -166,6 +188,7 @@ body {
 .cadastro div h1 {
     font-size: 4em;
     margin-bottom: 20%;
+    font-family: 'Heavitas';
 }
 
 .cadastro div input{
@@ -175,8 +198,8 @@ body {
     border-radius: 10px;
     outline: none;
     padding-left: 10px;
+    font-size: 1.2em;
     background-color: #d2d2d2;
-    font-size: 1em;
 }
 
 .cadastro .senha {
@@ -205,12 +228,16 @@ body {
     height: 15%;
     border-radius: 10px;
     border: none;
-    background-color: rgb(94, 77, 122);
-    color: white;
+    background-color: #f8b5c6;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Heavitas';
+
 }
 
 .cadastro div button:hover {
-    background-color: rgb(65, 36, 110);
+    background-color: #f8b5c6;
 }
 
 .cadastro span {
@@ -219,8 +246,22 @@ body {
 /* Estilização Cadastro */
 
 
+.transicao:hover {
+    text-decoration: underline;
+}
+
+.formulario.ativo .img{
+    transform: translateX(-100%);
+    border-radius: 0px 30px 30px 0px;
+}
 
 
-/* Animação */
 
-/* Animação */
+
+
+
+
+@font-face {
+    font-family: 'Heavitas';
+    src: url(../assets/fonts/Heavitas.ttf) format('truetype');
+}
