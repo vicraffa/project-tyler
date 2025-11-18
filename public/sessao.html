@@ -36,6 +36,7 @@
                     <div id="msg_login_senha"></div>
                     <br>
                     <button id="entrar" onclick="entrar()">Entrar</button>
+                    <div id="msg_login"></div>
                     <br>
                     <span class="transicao" onclick="transicao('cadastro')">Ainda não possui conta? Registre-se</span>
                 </div>
@@ -64,6 +65,9 @@
                     <div id="msg_cadastro_senha"></div>
                     <br>
                     <button onclick="cadastrar()">Cadastrar</button>
+                    <div id="msg_cadastro">
+                      
+                    </div>
                     <br>
                     <span class="transicao" onclick="transicao('login')">Já possui login? Entre</span>
                 </div>
@@ -133,23 +137,166 @@
         }
     }
 
+    // function cadastrar() {
+    //     // Validação dos tokens cadastrados no Banco de Dados + validações dos campos preechidos para efetuar cadastro
+    //     if (senhaValida && emailValido) {
+    //         setTimeout(transicao('login'), 2000)
+    //     } else {
+    //         alert('Cadastro Inválido! Confira os campos');
+    //     }
+    // }
+
+
+
+    // funções de login ---------------------------------------------------------------------------------------------------    
+    function entrar() {
+        // aguardar();
+
+        // var emailVar = email_input.value;
+        // var senhaVar = senha_input.value;
+        var nicknameVar = input_login_nickname.value;
+        var senhaVar = input_login_senha.value;
+
+        console.log("FORM LOGIN: ", nicknameVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nicknameServer: nicknameVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                msg_cadastro.innerHTML = `<span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`;
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "../dashboard/dashboard.html";
+                        msg_cadastro.innerHTML = ``;
+
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    // funções de login ---------------------------------------------------------------------------------------------------    
+
+
+
+    // funções de cadastro ---------------------------------------------------------------------------------------------------    
+    var nicknameVal = true;
+    var emailVal = false;
+    var passwordVal = false;
+
+
     function cadastrar() {
-        // Validação dos tokens cadastrados no Banco de Dados + validações dos campos preechidos para efetuar cadastro
-        if (senhaValida && emailValido) {
-            setTimeout(transicao('login'), 2000)
-        } else {
-            alert('Cadastro Inválido! Confira os campos');
-        }
+    
+    // Validar os campos do formulário
+    validarEntradas()
+    if(!nicknameVal || !emailVal || !passwordVal){
+      console.log('Algum campo não está preenchido corretamente')
+      return;
+    }
+    // Validar os campos do formulário
+  
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nicknameVar = input_cadastro_nickname.value;
+    var emailVar = input_cadastro_email.value;
+    var senhaVar = input_cadastro_senha.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nicknameVar == "" ||
+      emailVar == "" ||
+      senhaVar == ""
+    ) {
+      // cardErro.style.display = "block";
+      // mensagem_erro.innerHTML =
+      //   "(Mensagem de erro para todos os campos em branco)";
+      console.log("Algum campo está em branco.")
+      return false;
+    } else {
+      // setInterval(sumirMensagem, 5000);
     }
 
-    function validarEmail() {
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nicknameServer: nicknameVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          msg_cadastro.innerHTML = `<span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`
+          setTimeout(() => {
+            transicao('login');
+            msg_cadastro.innerHTML = ``;
+          }, "2000");
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+  // function sumirMensagem() {
+  //   cardErro.style.display = "none";
+  // }
+
+      function validarEmail() {
         // Variável do campo email
         let email = input_cadastro_email.value;
 
         if (!email.includes('@')) {
             msg_cadastro_email.innerHTML = '<span style="color:red">Incluir @</span>'
         } else {
-            emailValido = true;
+            emailVal = true;
             msg_cadastro_email.innerHTML = '';
         }
 
@@ -216,280 +363,14 @@
 
         // Validação geral 
         if (tamanhoValido && caractereValido && numeroValido && maiusculoValido && minusculoValido) {
-            senhaValida = true;
+            passwordVal = true;
         }
     }
-
-
-    // funções de login ---------------------------------------------------------------------------------------------------    
-    function entrar() {
-        aguardar();
-
-        // var emailVar = email_input.value;
-        // var senhaVar = senha_input.value;
-        var nicknameVar = input_login_nickname.value;
-        var senhaVar = input_login_senha.value;
-
-        console.log("FORM LOGIN: ", nicknameVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nicknameServer: nicknameVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                        window.location = "../dashboard/dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-    // funções de login ---------------------------------------------------------------------------------------------------    
-
-
-
-    // funções de cadastro ---------------------------------------------------------------------------------------------------    
-    var nameVal = false;
-    var emailVal = false;
-    var cpfVal = false;
-    var passwordVal = false;
-    var confirmPasswordVal = false;
-
-
-    // Array para armazenar empresas cadastradas para validação de código de ativação 
-    let listaEmpresasCadastradas = [];
-
-    function cadastrar() {
-    
-    // Validar os campos do formulário
-    validarEntradas()
-    if(!nameVal || !emailVal || !cpfVal || !passwordVal || !confirmPasswordVal){
-      console.log('Algum campo não está preenchido corretamente')
-      return;
-    }
-    // Validar os campos do formulário
-
-
-
-
-
-  
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var cpfVar = cpf_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      cpfVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        cpfServer: cpfVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-
-
-  
-
-  function validarNome(){
-    var nome = nome_input.value
-
-    if(nome.length < 2){
-      mensagem_nome.innerHTML = `<span style="color: red;">Nome deve ter mais de um caractere</span>`
-      nameVal = false
-    }else{
-      mensagem_nome.innerHTML = null
-      nameVal = true
-    }
-  }
-
-  function validarEmail(){
-    var email = email_input.value
-
-    if(email.includes('@') && email.includes('.')){
-      mensagem_email.innerHTML = null
-      emailVal = true
-    }else{
-      mensagem_email.innerHTML = `<span style="color: red;">Email deve conter '@' e '.'</span>`
-      emailVal = false
-    }
-  }
-
-  function validarCPF(){
-    var cpf = cpf_input.value
-
-    if(cpf.length != 14){
-      mensagem_cpf.innerHTML = `<span style="color: red;">CPF deve conter pontos "." e traço "-"</span>`
-      cpfVal = false
-    }else{
-      mensagem_cpf.innerHTML = null
-      cpfVal = true
-    }
-  }
-
-  function validarSenha(){
-    var senha = senha_input.value
-
-    if(senha.length < 7){
-      mensagem_senha.innerHTML = `<span style="color: red;">Senha deve conter no mínimo 7 caracteres</span>`
-      passwordVal = false
-    }else{
-      mensagem_senha.innerHTML = null
-      passwordVal = true
-    }
-  }
-
-  function validarConfirmarSenha(){
-    var senhaConfirmar = confirmacao_senha_input.value
-    var senha = senha_input.value
-
-    if(senhaConfirmar != senha){
-      mensagem_confirmarSenha.innerHTML = `<span style="color: red;">Senhas devem ser iguais</span>` 
-      confirmPasswordVal = false
-    }else{
-      mensagem_confirmarSenha.innerHTML = null 
-      confirmPasswordVal = true
-    }
-
-  }
 
   function validarEntradas(){
-    validarNome()
     validarEmail()
-    validarCPF()
     validarSenha()
-    validarConfirmarSenha()
   }
-
     // funções de cadastro ---------------------------------------------------------------------------------------------------    
 
 </script>

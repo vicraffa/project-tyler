@@ -1,4 +1,4 @@
-drop ddrop database projecttyler;
+database projecttyler;
 create database projecttyler;
 use projecttyler;
 
@@ -30,4 +30,6 @@ dtRegistro datetime default current_timestamp
 insert into usuario (nickname, email, senha) values
 ('victor', 'victor@email.com', 'Album@123');
 
-select * from usuario
+select * from usuario;
+
+delete from usuario where id = 2;
