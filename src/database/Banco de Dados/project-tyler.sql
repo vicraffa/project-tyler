@@ -1,4 +1,4 @@
-database projecttyler;
+drop database projecttyler;
 create database projecttyler;
 use projecttyler;
 
@@ -11,7 +11,7 @@ img char(1)
 
 create table usuario (
 id int primary key auto_increment,
-nickname varchar(100),
+nickname varchar(100) unique,
 email varchar(100),
 senha varchar(45),
 album_id int,
@@ -27,9 +27,4 @@ pontuacao int,
 dtRegistro datetime default current_timestamp
 );
 
-insert into usuario (nickname, email, senha) values
-('victor', 'victor@email.com', 'Album@123');
-
 select * from usuario;
-
-delete from usuario where id = 2;

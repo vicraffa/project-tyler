@@ -150,10 +150,6 @@
 
     // funções de login ---------------------------------------------------------------------------------------------------    
     function entrar() {
-        // aguardar();
-
-        // var emailVar = email_input.value;
-        // var senhaVar = senha_input.value;
         var nicknameVar = input_login_nickname.value;
         var senhaVar = input_login_senha.value;
 
@@ -174,8 +170,7 @@
 
             if (resposta.ok) {
                 console.log(resposta);
-                msg_cadastro.innerHTML = `<span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`;
-
+                
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -183,9 +178,10 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    msg_login.innerHTML = `<br><span style="color: green; font-size:1.3em;">Login realizado.. redirecionando...</span>`;
                     setTimeout(function () {
                         window.location = "../dashboard/dashboard.html";
-                        msg_cadastro.innerHTML = ``;
+                        msg_login.innerHTML = ``;
 
                     }, 1000); // apenas para exibir o loading
 
@@ -240,13 +236,9 @@
       emailVar == "" ||
       senhaVar == ""
     ) {
-      // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML =
-      //   "(Mensagem de erro para todos os campos em branco)";
-      console.log("Algum campo está em branco.")
-      return false;
-    } else {
-      // setInterval(sumirMensagem, 5000);
+        console.log("Algum campo está em branco.")
+        msg_cadastro.innerHTML = `<br><span style="color: red;">Algum campo está em branco.</span>`
+        return false;
     }
 
 
@@ -268,7 +260,7 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          msg_cadastro.innerHTML = `<span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`
+          msg_cadastro.innerHTML = `<br><span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`
           setTimeout(() => {
             transicao('login');
             msg_cadastro.innerHTML = ``;
@@ -284,10 +276,6 @@
 
     return false;
   }
-
-  // function sumirMensagem() {
-  //   cardErro.style.display = "none";
-  // }
 
       function validarEmail() {
         // Variável do campo email
