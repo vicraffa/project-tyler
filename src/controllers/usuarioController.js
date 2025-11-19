@@ -21,6 +21,7 @@ function autenticar(req, res) {
                         res.json(resultadoAutenticar[0])
                     } else if (resultadoAutenticar.length >= 0) {
                         res.status(403).send("Nickname e/ou senha inválido(s)");
+                        return res.status(403).send("Nickname e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
@@ -60,6 +61,17 @@ function cadastrar(req, res) {
             ).catch(
                 function (erro) {
                     console.log(erro);
+
+                    if (erro.code === "ER_DUP_ENTRY") {
+                        if (erro.sqlMessage.includes("email")) {
+                            return res.status(409).send("Email já está sendo utilizado.");
+                        }
+
+                        if (erro.sqlMessage.includes("nickname")) {
+                            return res.status(409).send("Nickname já existente.");
+                        }
+                    }
+
                     console.log(
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage

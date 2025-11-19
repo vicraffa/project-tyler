@@ -66,7 +66,7 @@
                     <br>
                     <button onclick="cadastrar()">Cadastrar</button>
                     <div id="msg_cadastro">
-                      
+
                     </div>
                     <br>
                     <span class="transicao" onclick="transicao('login')">Já possui login? Entre</span>
@@ -137,17 +137,6 @@
         }
     }
 
-    // function cadastrar() {
-    //     // Validação dos tokens cadastrados no Banco de Dados + validações dos campos preechidos para efetuar cadastro
-    //     if (senhaValida && emailValido) {
-    //         setTimeout(transicao('login'), 2000)
-    //     } else {
-    //         alert('Cadastro Inválido! Confira os campos');
-    //     }
-    // }
-
-
-
     // funções de login ---------------------------------------------------------------------------------------------------    
     function entrar() {
         var nicknameVar = input_login_nickname.value;
@@ -170,7 +159,7 @@
 
             if (resposta.ok) {
                 console.log(resposta);
-                
+
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -188,6 +177,9 @@
                 });
 
             } else {
+                resposta.text().then(texto => {
+                    msg_login.innerHTML = `<br><span style="color: red;">${texto}</span>`;
+                });
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -213,75 +205,78 @@
 
 
     function cadastrar() {
-    
-    // Validar os campos do formulário
-    validarEntradas()
-    if(!nicknameVal || !emailVal || !passwordVal){
-      console.log('Algum campo não está preenchido corretamente')
-      return;
-    }
-    // Validar os campos do formulário
-  
-    // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nicknameVar = input_cadastro_nickname.value;
-    var emailVar = input_cadastro_email.value;
-    var senhaVar = input_cadastro_senha.value;
+        // Validar os campos do formulário
+        validarEntradas()
+        if (!nicknameVal || !emailVal || !passwordVal) {
+            msg_cadastro.innerHTML = `<br><span style="color: red;">Algum campo não está preenchido corretamente.</span>`
+            console.log('Algum campo não está preenchido corretamente')
+            return;
+        }
+        // Validar os campos do formulário
 
-    // Verificando se há algum campo em branco
-    if (
-      nicknameVar == "" ||
-      emailVar == "" ||
-      senhaVar == ""
-    ) {
-        console.log("Algum campo está em branco.")
-        msg_cadastro.innerHTML = `<br><span style="color: red;">Algum campo está em branco.</span>`
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nicknameVar = input_cadastro_nickname.value;
+        var emailVar = input_cadastro_email.value;
+        var senhaVar = input_cadastro_senha.value;
+
+        // Verificando se há algum campo em branco
+        if (
+            nicknameVar == "" ||
+            emailVar == "" ||
+            senhaVar == ""
+        ) {
+            console.log("Algum campo está em branco.")
+            msg_cadastro.innerHTML = `<br><span style="color: red;">Algum campo está em branco.</span>`
+            return false;
+        }
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nicknameServer: nicknameVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    msg_cadastro.innerHTML = `<br><span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`
+                    setTimeout(() => {
+                        transicao('login');
+                        msg_cadastro.innerHTML = ``;
+                    }, "2000");
+
+                } else {
+                    resposta.text().then(texto => {
+                        msg_cadastro.innerHTML = `<br><span style="color: red;">${texto}</span>`;
+                    });
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
         return false;
     }
 
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nicknameServer: nicknameVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          msg_cadastro.innerHTML = `<br><span style="color: green;">Cadastro realizado.. redirecionando para login.</span>`
-          setTimeout(() => {
-            transicao('login');
-            msg_cadastro.innerHTML = ``;
-          }, "2000");
-
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
-    return false;
-  }
-
-      function validarEmail() {
+    function validarEmail() {
         // Variável do campo email
         let email = input_cadastro_email.value;
 
         if (!email.includes('@')) {
+            emailVal = false;
             msg_cadastro_email.innerHTML = '<span style="color:red">Incluir @</span>'
         } else {
             emailVal = true;
@@ -289,6 +284,7 @@
         }
 
         if (email == '') {
+            emailVal = false;
             msg_cadastro_email.innerHTML = '';
         }
     }
@@ -311,16 +307,18 @@
         // Mínimo 8 caracteres
         if (tamanhoSenha < 8) {
             mensagem += `<span style="color:red"> 8 caracteres </span><br>`;
+            tamanhoValido = false;
         } else {
             tamanhoValido = true;
         }
 
         // Mínimo um caractere especial
-        for (let i = 0; i < listaCaracteres.length ; i++) {
+        for (let i = 0; i < listaCaracteres.length; i++) {
             if (senha.includes(listaCaracteres[i])) {
                 caractereValido = true;
             }
         } if (!caractereValido) {
+            caractereValido = false;
             mensagem += `<span style="color:red"> 1 caractere especial </span><br>`;
         }
 
@@ -330,12 +328,14 @@
                 numeroValido = true;
             }
         } if (!numeroValido) {
+            numeroValido = false;
             mensagem += `<span style="color:red"> 1 número</span><br>`;
         }
 
         // Mínimo uma letra maiúscula
         if (senha == senha.toLowerCase()) {
             mensagem += '<span style="color:red"> 1 Letra Maiúscula</span><br>';
+            maiusculoValido = false;
         } else {
             maiusculoValido = true;
         }
@@ -343,6 +343,7 @@
         // Mínimo uma letra minúscula
         if (senha == senha.toUpperCase()) {
             mensagem += '<span style="color:red">1 Letra Minúscula</span>';
+            minusculoValido = true;
         } else {
             minusculoValido = true;
         }
@@ -355,10 +356,10 @@
         }
     }
 
-  function validarEntradas(){
-    validarEmail()
-    validarSenha()
-  }
+    function validarEntradas() {
+        validarEmail()
+        validarSenha()
+    }
     // funções de cadastro ---------------------------------------------------------------------------------------------------    
 
 </script>

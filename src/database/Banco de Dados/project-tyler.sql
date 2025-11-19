@@ -12,7 +12,7 @@ img char(1)
 create table usuario (
 id int primary key auto_increment,
 nickname varchar(100) unique,
-email varchar(100),
+email varchar(100) unique,
 senha varchar(45),
 album_id int,
 constraint albumUsuario foreign key (album_id) references album (id)
@@ -28,3 +28,5 @@ dtRegistro datetime default current_timestamp
 );
 
 select * from usuario;
+
+delete from usuario where id = 5;

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/game.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <header>
+        <div>
+            <a class="header-questionario" href="questionario.html">QUESTIONÁRIO</a>
+            <a class="header-quizz" href="quizz.html">QUIZZ</a>
+            <a class="header-perfil ativo" href="perfil.html">PERFIL</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="user">
+            <div class="img">
+                <img src="assets/me-kid2.jpg">
+                <h1>gus34</h1> 
+                <h2>gus34@gmail.com</h2> 
+            </div>
+            <div class="sair">
+                <span>
+                    Sair
+                </span>
+            </div>
+        </div>
+
+        <div class="divisoria"></div>
+
+        <div class="album">
+            <div class="titulo">
+                <h1>
+                    ALBUM
+                </h1>
+            </div>
+            <div class="img">
+                <img src="assets/flowerboy.jpg">
+                <span>Flower boy</span>
+            </div>
+            <div class="sub-titulo">
+                <h2>patience, romance,<br>
+                    stupid, dedication</h2>
+            </div>
+            <div class="texto">
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facere sit dolorum, repellendus illo ipsam iusto nulla voluptates cupiditate, in pariatur cum et consectetur expedita quis error explicabo atque voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. In impedit eveniet labore eligendi corrupti, doloribus modi odit incidunt minima nemo, maiores, earum nisi magnam iure rerum autem quaerat tempore neque!</span>
+            </div>
+        </div>
+
+
+        <div class="tentativasQuestionario">
+            <h1>5 MELHORES TENTATIVAS NO QUESTIONÁRIO</h1>
+            <div class="grafico">
+                <div>
+  <canvas id="myChart"></canvas>
+</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['12/11/25', '12/11/25', '17/11/25', '20/11/25', '18/11/25'],
+      datasets: [{
+        label: '# of Votes',
+        data: [8, 9, 14, 18, 25],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

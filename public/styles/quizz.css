@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: url(../assets/igor-texture.png);
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Heavitas';
+    font-size: 4vh;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+}
+
+header div a.ativo{
+    background-color: #be6c83;
+    color: white;
+}
+
+header div a:hover{
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+@font-face {
+    font-family: 'Heavitas';
+    src: url(../assets/fonts/Heavitas.ttf) format('truetype');
+}
+
+
+
+
+
+
+
+
+
+
+main {
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main div.inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main div.inicio h1 {
+    font-family: 'Heavitas';
+    font-size: 2.7em;
+    text-align: center;
+}
+
+main div.inicio button {
+    margin-top: 8%;
+    background-color: #be6c83;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    height: 120px;
+    width: 350px;
+    font-size: 1.6em;
+    font-family: 'Heavitas';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+main .quizz {
+    width: 90%;
+    height: 80%;
+}
+
+main .quizz .card-perguntas {
+    background-color: #be6c83;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-perguntas .opcoes-quizz {
+    display: flex;
+    flex-direction: column;
+}
