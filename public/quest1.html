@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/quizz.css">
+    <link rel="stylesheet" href="styles/questionario.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
-
 <body>
-
+    
     <header>
         <div>
-            <a class="header-questionario" href="questionario.html">QUESTIONÁRIO</a>
-            <a class="header-quizz ativo" href="quizz.html">QUIZZ</a>
+            <a class="header-questionario ativo" href="questionario.html">QUESTIONÁRIO</a>
+            <a class="header-questionario" href="quizz.html">QUIZZ</a>
             <a class="header-perfil" href="perfil.html">PERFIL</a>
         </div>
     </header>
@@ -22,23 +21,23 @@
     <main>
         <div id="inicio" class="inicio">
             <h1>Já se perguntou qual album do Tyler, The Creator você é?<br> Inicie a tentativa para descobrir!</h1>
-            <button onclick="iniciarQuizz()">INICIAR TENTATIVA</button>
+            <button onclick="iniciarquestionario()">INICIAR TENTATIVA</button>
         </div>
 
-        <div id="quizz" class="quizz">
+        <div id="questionario" class="questionario">
             <div class="card-perguntas">
 
-                <div id="perguntaDaQuestaoAtual" class="pergunta-quizz">
+                <div id="perguntaDaQuestaoAtual" class="pergunta-questionario">
                     <span id="spanQuestaoExibida" class="text-bold">Quando você está passando por um momento emocional intenso, qual dessas atitudes mais se parece sua?</span>
 
                 </div>
 
-                <div id="opcoes" class="opcoes-quizz">
+                <div id="opcoes" class="opcoes-questionario">
                     <span>
                         <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
                         <label for="primeiraOpcao" class="option" id="labelOpcaoUm">Eu guardo tudo pra mim e deixo a raiva
                             engolir o resto.</label>
-                    </span>
+                    </span> 
                     <span>
                         <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
                         <label for="segundaOpcao" class="option" id="labelOpcaoDois">Eu tento me concentrar em algo criativo
@@ -55,20 +54,60 @@
                             penso sobre mim e tento encontrar paz.</label>
                     </span>
                 </div>
-
+                <div class="botao">
+                    <button>Próxima</button>
+                </div>
             </div>
         </div>
     </main>
 
 </body>
-
 </html>
 <script>
-    quizz.style.display = 'none'
+    // questionario.style.display = 'none'
 
-    function iniciarQuizz() {
+            inicio.style.display = 'none'
+        questionario.style.display = 'flex'
+
+    function iniciarquestionario() {
         inicio.style.display = 'none'
-        quizz.style.display = 'flex'
+        questionario.style.display = 'flex'
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </script>
