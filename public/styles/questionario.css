@@ -207,7 +207,7 @@ main div.inicio-ranking .tabela{
 table {
     border-collapse: collapse;
     width: 90%;
-    height: 90%;
+    height: 95%;
     text-align: center;
     margin: 25px 0;
 }
@@ -228,12 +228,20 @@ table thead th:last-child {
 }
 
 table tbody tr {
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-family: 'Open Sans';
     font-weight: bold;
 }
 
 
+
+table tbody tr:nth-child(even) td:first-child{
+    border-radius: 10px 0px 0px 10px;
+} 
+table tbody tr:nth-child(even) td:last-child{
+    border-radius: 00px 10px 10px 00px;
+
+}
 
 table tbody tr:nth-child(even){
     background-color: #d86e89;
@@ -281,9 +289,14 @@ main .questionario .card-perguntas {
 
 
 
-button {
+.questionario button {
+    height: 50px;
     font-family: monospace;
     font-weight: bold;
+    border: none;
+    background-color: #095c36;
+    border-radius: 10px;
+    color: var(--new-white);
 }
 
 .flex-colunar {
