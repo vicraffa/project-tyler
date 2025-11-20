@@ -23,7 +23,9 @@ id int auto_increment,
 usuario_id int,
 primary key (id, usuario_id),
 constraint usuarioTentativaQuestionario foreign key (usuario_id) references usuario (id),
-pontuacao int,
+acertos int not null,
+erros int not null,
+qtdPerguntas int not null,
 dtRegistro datetime default current_timestamp
 );
 

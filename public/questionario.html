@@ -25,9 +25,12 @@
             <div class="inicio-questionario">
                 <div class="text">
                     <h1>QUESTIONÁRIO</h1>
-                    <span>Esse questionário possui 30 perguntas sobre o Tyler, elas são escolhidas pseudo aleatoriamente
+                    <span>Esse questionário possui 30 perguntas sobre o Tyler,
+                        <!-- elas são escolhidas pseudo aleatoriamente
                         em nossa base de perguntas, então toda tentiva será composta por algumas perguntas iguais e
-                        outras diferentes!</span>
+                        outras diferentes! -->
+                        são perguntas de assuntos variados, sendo tanto sobre músicas ou questões da carreira dele!
+                    </span>
                 </div>
                 <div class="btn">
                     <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR TENTATIVA</button>
@@ -103,77 +106,79 @@
 
         <div id="questionario" class="questionario">
             <div class="card-perguntas">
-                <div class="">
-                    <div id="pontuacaoEJogo">
 
-                        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-                            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                                <span class="width-fit-content">Quantidade de acertos: 
-                                <span id="spanCertas"></span></span>
-                                <span class="width-fit-content">Quantidade de erros: 
-                                <span id="spanErradas"></span></span>
-                            </div>
-                            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                                    <span id="spanPontuacaoFinal">***</span>
-                                </span>
-                                <span id="msgFinal" class="width-fit-content">***</span>
-                            </div>
+                <div id="pontuacaoEJogo">
+
+                    <div id="pontuacao">
+                        <div id="pontuacaoDuranteJogo">
+                            <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
+                            <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+                        </div>
+                    </div>
+
+                    <div id="jogo">
+
+                        <div id="infoQuestao">
+                            <span>QUESTÃO ATUAL: <span id="spanNumeroDaQuestaoAtual"></span> DE <span
+                                    id="qtdQuestoes"></span> QUESTÕES.</span>
                         </div>
 
-                        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+                        <div id="perguntaDaQuestaoAtual">
+                            <span id="spanQuestaoExibida"></span>
+                        </div>
 
-                            <div id="infoQuestao" class="padding-8">
-                                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
-                                        id="qtdQuestoes"></span>
-                                    questões.</span>
-                            </div>
-
-                            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                                <span id="spanQuestaoExibida" class="text-bold"></span>
-                            </div>
-
-                            <div id="infoAlternativas" class="padding-8">
-                                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                            </div>
-
-                            <div id="opcoes" class="flex-colunar padding-8">
-                                <span>
-                                    <input type="radio" id="primeiraOpcao" name="option" class="radio"
-                                        value="alternativaA" />
-                                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                                </span>
-                                <span>
-                                    <input type="radio" id="segundaOpcao" name="option" class="radio"
-                                        value="alternativaB" />
-                                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                                </span>
-                                <span>
-                                    <input type="radio" id="terceiraOpcao" name="option" class="radio"
-                                        value="alternativaC" />
-                                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                                </span>
-                                <span>
-                                    <input type="radio" id="quartaOpcao" name="option" class="radio"
-                                        value="alternativaD" />
-                                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                                </span>
-                            </div>
-
-                            <div id="botoes" class="flex-colunar padding-8">
-                                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
-                                    novamente</button>
-                            </div>
+                        <div id="infoAlternativas">
 
                         </div>
+
+                        <div id="opcoes">
+                            <span id="primeiraOpcaoSpan" class="">
+                                <input type="radio" id="primeiraOpcao" name="option" value="alternativaA" />
+                                <label onclick="marcarOpcao('primeiraOpcao')" for="primeiraOpcao"
+                                    id="labelOpcaoUm"></label>
+                            </span>
+                            <span id="segundaOpcaoSpan" class="">
+                                <input type="radio" id="segundaOpcao" name="option" value="alternativaB" />
+                                <label onclick="marcarOpcao('segundaOpcao')" for="segundaOpcao"
+                                    id="labelOpcaoDois"></label>
+                            </span>
+                            <span id="terceiraOpcaoSpan" class="">
+                                <input type="radio" id="terceiraOpcao" name="option" value="alternativaC" />
+                                <label onclick="marcarOpcao('terceiraOpcao')" for="terceiraOpcao"
+                                    id="labelOpcaoTres"></label>
+                            </span>
+                            <span id="quartaOpcaoSpan" class="">
+                                <input type="radio" id="quartaOpcao" name="option" value="alternativaD" />
+                                <label onclick="marcarOpcao('quartaOpcao')" for="quartaOpcao"
+                                    id="labelOpcaoQuatro"></label>
+                            </span>
+                        </div>
+
+                        <div id="botoes">
+                            <button onclick="submeter()" id="btnSubmeter">SUBMETER</button>
+                            <button onclick="avancar()" id="btnProx" disabled>AVANÇAR</button>
+                            <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>TENTAR
+                                NOVAMENTE</button>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </div>
+
+        <div class="resultados" id="resultados">
+            <div id="pontuacaoFinalJogo">
+                <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
+                <span id="msgFinal"></span>
+            </div>
+            <div id="pontuacao">
+                <div id="pontuacaoDuranteJogo">
+                    <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
+                    <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+                </div>
+            </div>
     </main>
 
 </body>
@@ -181,8 +186,9 @@
 </html>
 <script src="js/perguntas.js"></script>
 <script>
-    questionario.style.display = 'flex'
-    inicio.style.display = 'none'
+    questionario.style.display = 'none'
+    resultados.style.display = 'none'
+    inicio.style.display = 'flex'
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -269,6 +275,11 @@
     }
 
     function avancar() {
+        document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
+        document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
+        document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
+        document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
+
         btnProx.disabled = true
         btnSubmeter.disabled = false
 
@@ -283,6 +294,19 @@
             finalizarJogo()
         }
         limparCoresBackgroundOpcoes()
+
+        resultados.innerHTML = `
+            <div id="pontuacaoFinalJogo">
+                <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
+                <span id="msgFinal"></span>
+            </div>
+            <div id="pontuacao">
+                <div id="pontuacaoDuranteJogo">
+                    <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
+                    <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+                </div>
+            </div>
+        `;
     }
 
     function tentarNovamente() {
@@ -373,5 +397,41 @@
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
 
+        questionario.style.display = 'none'
+        resultados.style.display = 'flex'
+        
     }
+
+
+    function marcarOpcao(opcao) {
+
+        if (opcao == 'primeiraOpcao') {
+            document.getElementById('primeiraOpcaoSpan').classList.add('marcado')
+            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
+            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
+            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
+
+        } else if (opcao == 'segundaOpcao') {
+            document.getElementById('segundaOpcaoSpan').classList.add('marcado')
+            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
+            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
+            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
+
+        } else if (opcao == 'terceiraOpcao') {
+            document.getElementById('terceiraOpcaoSpan').classList.add('marcado')
+            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
+            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
+            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
+
+        } else {
+            document.getElementById('quartaOpcaoSpan').classList.add('marcado')
+            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
+            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
+            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
+
+        }
+
+    }
+    // marcarOpcao('quartaOpcao')
+
 </script>
