@@ -1,12 +1,12 @@
 // sessão
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+    var nome = sessionStorage.NICK_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+    var b_usuario = document.getElementById("lnick_usuario");
 
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
+        lnick_usuario.innerHTML = nome;
     } else {
         window.location = "../sessao.html";
     }
@@ -14,5 +14,5 @@ function validarSessao() {
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../sessao.html";
+    window.location = "sessao.html";
 }

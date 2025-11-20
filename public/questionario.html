@@ -15,7 +15,7 @@
     <header>
         <div>
             <a class="header-questionario ativo" href="questionario.html">QUESTIONÁRIO</a>
-            <!-- <a class="header-questionario" href="quizz.html">QUIZZ</a> -->
+            <a class="header-questionario" href="forum.html">FORUM</a>
             <a class="header-perfil" href="perfil.html">PERFIL</a>
         </div>
     </header>
@@ -110,10 +110,7 @@
                 <div id="pontuacaoEJogo">
 
                     <div id="pontuacao">
-                        <div id="pontuacaoDuranteJogo">
-                            <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
-                            <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
-                        </div>
+
                     </div>
 
                     <div id="jogo">
@@ -169,16 +166,23 @@
         </div>
 
         <div class="resultados" id="resultados">
-            <div id="pontuacaoFinalJogo">
-                <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
-                <span id="msgFinal"></span>
-            </div>
-            <div id="pontuacao">
-                <div id="pontuacaoDuranteJogo">
-                    <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
-                    <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+            <div class="card">
+                <div id="pontuacaoFinalJogo">
+                    <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
+                    <!-- <span id="msgFinal"></span> -->
+                </div>
+                <div id="pontuacao">
+                    <div id="pontuacaoDuranteJogo">
+                        <span>ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
+                        <span>ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button onclick="iniciarQuiz()" class="buttonResultados">TENTAR NOVAMENTE</button>
+                    <button onclick="tentarNovamente()" " class="buttonResultados">FINALIZAR</button>
                 </div>
             </div>
+        </div>
     </main>
 
 </body>
@@ -186,9 +190,9 @@
 </html>
 <script src="js/perguntas.js"></script>
 <script>
-    questionario.style.display = 'none'
-    resultados.style.display = 'none'
-    inicio.style.display = 'flex'
+        questionario.style.display = 'none'
+        resultados.style.display = 'none'
+        inicio.style.display = 'flex'
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -205,6 +209,7 @@
     }
 
     function iniciarQuiz() {
+        resultados.style.display = 'none'
         inicio.style.display = 'none'
         questionario.style.display = 'flex'
 
@@ -293,20 +298,27 @@
         } else {
             finalizarJogo()
         }
-        limparCoresBackgroundOpcoes()
+        
 
         resultados.innerHTML = `
-            <div id="pontuacaoFinalJogo">
-                <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
-                <span id="msgFinal"></span>
-            </div>
-            <div id="pontuacao">
-                <div id="pontuacaoDuranteJogo">
-                    <span>QUANTIDADE DE ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
-                    <span>QUANTIDADE DE ERROS:<span id="spanErradas" style="color: red;">0</span></span>
+            <div class="card">
+                <div id="pontuacaoFinalJogo">
+                    <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">${pontuacaoFinal}</span></span>
+                    <!-- <span id="msgFinal"></span> -->
+                </div>
+                <div id="pontuacao">
+                    <div id="pontuacaoDuranteJogo">
+                        <span>ACERTOS:<span id="spanCertas" style="color: green;">${certas}</span></span>
+                        <span>ERROS:<span id="spanErradas" style="color: red;">${erradas}</span></span>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button onclick="iniciarQuiz()" class="buttonResultados">TENTAR NOVAMENTE</button>
+                    <button onclick="tentarNovamente()" " class="buttonResultados">FINALIZAR</button>
                 </div>
             </div>
-        `;
+        `
+        ;
     }
 
     function tentarNovamente() {
@@ -350,13 +362,13 @@
         })
     }
 
-    function limparCoresBackgroundOpcoes() {
-        const options = document.getElementsByName("option");
-        options.forEach((option) => {
-            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
-            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
-        })
-    }
+    // function limparCoresBackgroundOpcoes() {
+    //     const options = document.getElementsByName("option");
+    //     options.forEach((option) => {
+    //         document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+    //         document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+    //     })
+    // }
 
     function desmarcarRadioButtons() {
         const options = document.getElementsByName("option");
@@ -386,8 +398,8 @@
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
-        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        // document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        // document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
         document.getElementById('jogo').classList.add("text-new-gray")
@@ -432,6 +444,5 @@
         }
 
     }
-    // marcarOpcao('quartaOpcao')
 
 </script>
