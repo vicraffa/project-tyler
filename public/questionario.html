@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/questionario.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="onloadEsconder()">
+
+    <header>
+        <div>
+            <a class="header-questionario ativo" href="questionario.html">QUESTIONÁRIO</a>
+            <!-- <a class="header-questionario" href="quizz.html">QUIZZ</a> -->
+            <a class="header-perfil" href="perfil.html">PERFIL</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="inicio" class="inicio">
+            <div class="inicio-questionario">
+                <div class="text">
+                    <h1>QUESTIONÁRIO</h1>
+                    <span>Esse questionário possui 30 perguntas sobre o Tyler, elas são escolhidas pseudo aleatoriamente
+                        em nossa base de perguntas, então toda tentiva será composta por algumas perguntas iguais e
+                        outras diferentes!</span>
+                </div>
+                <div class="btn">
+                    <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR TENTATIVA</button>
+                </div>
+            </div>
+            <div class="inicio-ranking">
+                <div class="text">
+                    <h1>RANKING DAS 8 MELHORES TENTATIVAS</h1>
+                    <span>(APENAS 1 TENTATIVA POR JOGADOR)</span>
+                </div>
+                <div class="tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>POSIÇÃO</th>
+                                <th>NICKNAME</th>
+                                <th>PONTUAÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-marcas">
+                            <tr class="linha">
+                                <td class="posicao">1º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">2º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">3º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">4º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">5º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha-25">
+                                <td class="posicao">6º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">7º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+
+                            <tr class="linha">
+                                <td class="posicao">8º</td>
+                                <td class="nickname">gus34</td>
+                                <td class="pontuacaoRanking">25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="questionario" class="questionario">
+            <div class="card-perguntas">
+                <div class="">
+                    <div id="pontuacaoEJogo">
+
+                        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                                <span class="width-fit-content">Quantidade de acertos: <span
+                                        id="spanCertas"></span></span>
+                                <span class="width-fit-content">Quantidade de erros: <span
+                                        id="spanErradas"></span></span>
+                            </div>
+                            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                                    <span id="spanPontuacaoFinal">***</span>
+                                </span>
+                                <span id="msgFinal" class="width-fit-content">***</span>
+                            </div>
+                        </div>
+
+                        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                            <div id="infoQuestao" class="padding-8">
+                                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                        id="qtdQuestoes"></span>
+                                    questões.</span>
+                            </div>
+
+                            <div id="perguntaDaQuestaoAtual" class="padding-8">
+                                <span id="spanQuestaoExibida" class="text-bold"></span>
+                            </div>
+
+                            <div id="infoAlternativas" class="padding-8">
+                                <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                            </div>
+
+                            <div id="opcoes" class="flex-colunar padding-8">
+                                <span>
+                                    <input type="radio" id="primeiraOpcao" name="option" class="radio"
+                                        value="alternativaA" />
+                                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                                </span>
+                                <span>
+                                    <input type="radio" id="segundaOpcao" name="option" class="radio"
+                                        value="alternativaB" />
+                                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                                </span>
+                                <span>
+                                    <input type="radio" id="terceiraOpcao" name="option" class="radio"
+                                        value="alternativaC" />
+                                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                                </span>
+                                <span>
+                                    <input type="radio" id="quartaOpcao" name="option" class="radio"
+                                        value="alternativaD" />
+                                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                                </span>
+                            </div>
+
+                            <div id="botoes" class="flex-colunar padding-8">
+                                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
+                                    novamente</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
+<script>
+    questionario.style.display = 'none'
+
+    const listaDeQuestoes = [
+        {
+            pergunta: "Qual mês tem 30 dias?",
+            alternativaA: "Janeiro",
+            alternativaB: "Dezembro",
+            alternativaC: "Junho",
+            alternativaD: "Agosto",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quantas horas tem em um dia?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual destes números é ímpar?",
+            alternativaA: "Dez",
+            alternativaB: "Doze",
+            alternativaC: "Oito",
+            alternativaD: "Onze",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual é o nome real do Tyler, The Creator?",
+            alternativaA: "Tyler Okonma",
+            alternativaB: "Tyler Brown",
+            alternativaC: "Tyler Smith",
+            alternativaD: "Tyler Carter",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual coletivo Tyler, The Creator ajudou a fundar?",
+            alternativaA: "Beast Coast",
+            alternativaB: "Odd Future",
+            alternativaC: "Brockhampton",
+            alternativaD: "A$AP Mob",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual álbum apresenta o personagem 'Wolf Haley'?",
+            alternativaA: "Flower Boy",
+            alternativaB: "Wolf",
+            alternativaC: "Igor",
+            alternativaD: "Cherry Bomb",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em qual álbum Tyler ganhou seu primeiro Grammy?",
+            alternativaA: "Wolf",
+            alternativaB: "Goblin",
+            alternativaC: "Igor",
+            alternativaD: "Cherry Bomb",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual desses é um alter ego de Tyler?",
+            alternativaA: "Tron Cat",
+            alternativaB: "Tony Flow",
+            alternativaC: "Captain Murphy",
+            alternativaD: "Sir Cartier",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual marca de moda Tyler criou?",
+            alternativaA: "Lemon Boy",
+            alternativaB: "Golf Wang",
+            alternativaC: "Tyler Apparel",
+            alternativaD: "Wang Golfwear",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "'Flower Boy' também é conhecido como...",
+            alternativaA: "Scum Fuck Flower Boy",
+            alternativaB: "Garden Boy",
+            alternativaC: "Bee Boy",
+            alternativaD: "Flowers Everywhere",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Quem é uma forte influência musical para Tyler?",
+            alternativaA: "Pharrell Williams",
+            alternativaB: "Drake",
+            alternativaC: "Future",
+            alternativaD: "Travis Scott",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual gênero é mais associado ao Tyler?",
+            alternativaA: "Samba",
+            alternativaB: "Hip-hop alternativo",
+            alternativaC: "EDM",
+            alternativaD: "Rock progressivo",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual era o visual principal da era 'Igor'?",
+            alternativaA: "Peruca loira e terno rosa",
+            alternativaB: "Máscara preta",
+            alternativaC: "Moletom amarelo",
+            alternativaD: "Chapéu militar",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual foi o primeiro álbum do Tyler?",
+            alternativaA: "Goblin",
+            alternativaB: "Wolf",
+            alternativaC: "Bastard",
+            alternativaD: "Flower Boy",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Tyler dirige seus próprios clipes usando qual nome?",
+            alternativaA: "Wolf Haley",
+            alternativaB: "Tyler Films",
+            alternativaC: "Okonma Vision",
+            alternativaD: "Haley Maker",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual instrumento Tyler mais usa em suas produções?",
+            alternativaA: "Gaita",
+            alternativaB: "Piano",
+            alternativaC: "Violão",
+            alternativaD: "Bateria eletrônica",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual álbum de Tyler é considerado o mais agressivo?",
+            alternativaA: "Goblin",
+            alternativaB: "Flower Boy",
+            alternativaC: "Cherry Bomb",
+            alternativaD: "Igor",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Em qual série animada Tyler dubla um personagem?",
+            alternativaA: "Regular Show",
+            alternativaB: "The Boondocks",
+            alternativaC: "Rick and Morty",
+            alternativaD: "Adventure Time",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual dessas músicas pertence ao álbum 'Igor'?",
+            alternativaA: "Tamale",
+            alternativaB: "EARFQUAKE",
+            alternativaC: "See You Again",
+            alternativaD: "Yonkers",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em qual estado dos EUA Tyler nasceu?",
+            alternativaA: "Califórnia",
+            alternativaB: "Texas",
+            alternativaC: "Geórgia",
+            alternativaD: "Flórida",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Em que ano 'Flower Boy' foi lançado?",
+            alternativaA: "2017",
+            alternativaB: "2019",
+            alternativaC: "2015",
+            alternativaD: "2021",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual o tema central de 'Igor'?",
+            alternativaA: "Ambição",
+            alternativaB: "Rompimento amoroso",
+            alternativaC: "Viagens",
+            alternativaD: "Criminalidade",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual produtor é uma das maiores inspirações de Tyler?",
+            alternativaA: "Pharrell Williams",
+            alternativaB: "Zaytoven",
+            alternativaC: "Metro Boomin",
+            alternativaD: "The Alchemist",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual álbum traz uma estética de viagem e passaporte?",
+            alternativaA: "Flower Boy",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Wolf",
+            alternativaD: "Goblin",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual personagem fictício aparece em múltiplos projetos de Tyler?",
+            alternativaA: "Dr. TC",
+            alternativaB: "Doctor Doom",
+            alternativaC: "Kid Crawler",
+            alternativaD: "Shadow Boy",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Tyler participou de qual festival como headliner pela primeira vez?",
+            alternativaA: "Camp Flog Gnaw",
+            alternativaB: "Rolling Loud",
+            alternativaC: "Lollapalooza",
+            alternativaD: "Coachella",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "'See You Again' tem feat com qual artista?",
+            alternativaA: "Frank Ocean",
+            alternativaB: "Kali Uchis",
+            alternativaC: "Solange",
+            alternativaD: "A$AP Rocky",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual dessas músicas é do álbum Wolf?",
+            alternativaA: "IFHY",
+            alternativaB: "EARFQUAKE",
+            alternativaC: "BEST INTEREST",
+            alternativaD: "JUGGERNAUT",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual dessas músicas ficou viral no TikTok anos depois?",
+            alternativaA: "Yonkers",
+            alternativaB: "See You Again",
+            alternativaC: "Boredom",
+            alternativaD: "Potato Salad",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é o sobrenome do Tyler?",
+            alternativaA: "Okonma",
+            alternativaB: "Brown",
+            alternativaC: "Jackson",
+            alternativaD: "Owens",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "O álbum Cherry Bomb é famoso por...",
+            alternativaA: "Ser extremamente polido",
+            alternativaB: "Ter mixagem caótica",
+            alternativaC: "Ser acústico",
+            alternativaD: "Ser instrumental",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual artista já fez feat em *Call Me If You Get Lost*?",
+            alternativaA: "NBA Youngboy",
+            alternativaB: "Ed Sheeran",
+            alternativaC: "21 Savage",
+            alternativaD: "Kid Cudi",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual foi o primeiro trabalho lançado por Tyler?",
+            alternativaA: "Wolf",
+            alternativaB: "Bastard",
+            alternativaC: "Goblin",
+            alternativaD: "Yonkers (single)",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em Cherry Bomb, Tyler colabora com qual guitarrista famoso?",
+            alternativaA: "Omar Rodríguez-López",
+            alternativaB: "John Mayer",
+            alternativaC: "Slash",
+            alternativaD: "Jack White",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é o maior hit comercial do Tyler?",
+            alternativaA: "EARFQUAKE",
+            alternativaB: "Yonkers",
+            alternativaC: "Tamale",
+            alternativaD: "Lumberjack",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o mascote da Golf Wang?",
+            alternativaA: "A caveira rosa",
+            alternativaB: "O donut com olhos",
+            alternativaC: "O peixe dourado",
+            alternativaD: "A abelha amarela",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "Qual álbum marca uma mudança emocional mais madura?",
+            alternativaA: "Goblin",
+            alternativaB: "Cherry Bomb",
+            alternativaC: "Flower Boy",
+            alternativaD: "Bastard",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "'Yonkers' foi um marco por qual motivo?",
+            alternativaA: "Produção experimental",
+            alternativaB: "Clipe polêmico",
+            alternativaC: "Letra romântica",
+            alternativaD: "Feat com Eminem",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual álbum ganhou Grammy de Melhor Álbum de Rap?",
+            alternativaA: "Flower Boy",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Goblin",
+            alternativaD: "Wolf",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual música é famosa por seu coral final?",
+            alternativaA: "RUNNING OUT OF TIME",
+            alternativaB: "FOREWORD",
+            alternativaC: "ARE WE STILL FRIENDS?",
+            alternativaD: "SWEET / I THOUGHT YOU WANTED TO DANCE",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Tyler criou um festival chamado...",
+            alternativaA: "Flog Gnaw",
+            alternativaB: "Flower Fest",
+            alternativaC: "Odd Future Days",
+            alternativaD: "Igor Fest",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual música apresenta o personagem 'Boyfriend'? ",
+            alternativaA: "BEST INTEREST",
+            alternativaB: "Puppet",
+            alternativaC: "WILSHIRE",
+            alternativaD: "I THINK",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "'Lemonhead' tem feat com qual artista?",
+            alternativaA: "Lil Wayne",
+            alternativaB: "NBA Youngboy",
+            alternativaC: "Charlie Wilson",
+            alternativaD: "Brent Faiyaz",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual álbum é o mais longo da discografia do Tyler?",
+            alternativaA: "Igor",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Wolf",
+            alternativaD: "Cherry Bomb",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual álbum foi relançado como 'The Estate Sale'?",
+            alternativaA: "Wolf",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Flower Boy",
+            alternativaD: "Igor",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual single marcou o início da era 'Flower Boy'?",
+            alternativaA: "Boredom",
+            alternativaB: "911 / Mr. Lonely",
+            alternativaC: "Who Dat Boy",
+            alternativaD: "See You Again",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "'New Magic Wand' pertence a qual álbum?",
+            alternativaA: "Flower Boy",
+            alternativaB: "Igor",
+            alternativaC: "Wolf",
+            alternativaD: "Goblin",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Tyler já trabalhou com a marca...",
+            alternativaA: "Lacoste",
+            alternativaB: "Louis Vuitton",
+            alternativaC: "Converse",
+            alternativaD: "Puma",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual tema visual se repete na carreira do Tyler?",
+            alternativaA: "Aviões",
+            alternativaB: "Abelhas",
+            alternativaC: "Carros antigos",
+            alternativaD: "Relógios",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual desses é um EP de Tyler?",
+            alternativaA: "Black Friday",
+            alternativaB: "Music Inspired by Illumination & Dr. Seuss’ The Grinch",
+            alternativaC: "Odd Mode",
+            alternativaD: "Golf Radio",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Tyler já fez tema musical para qual filme?",
+            alternativaA: "O Grinch",
+            alternativaB: "Inception",
+            alternativaC: "Spider-Man",
+            alternativaD: "Joker",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual personalidade Tyler admira publicamente?",
+            alternativaA: "Steve Lacy",
+            alternativaB: "Elon Musk",
+            alternativaC: "Kanye West",
+            alternativaD: "Will Smith",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual música veio como bônus na versão física de IGOR?",
+            alternativaA: "Boyfriend",
+            alternativaB: "Peach Fuzz",
+            alternativaC: "Rose Tinted Cheeks",
+            alternativaD: "Bronco",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual álbum apresenta o personagem 'Sammy'? ",
+            alternativaA: "Wolf",
+            alternativaB: "Cherry Bomb",
+            alternativaC: "Goblin",
+            alternativaD: "Flower Boy",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual foi o primeiro grande hit de Tyler?",
+            alternativaA: "EARFQUAKE",
+            alternativaB: "See You Again",
+            alternativaC: "Yonkers",
+            alternativaD: "Tamale",
+            alternativaCorreta: "alternativaC"
+        }
+    ]
+
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        inicio.style.display = 'none'
+        questionario.style.display = 'flex'
+
+        // function iniciarquestionario() {
+        //     inicio.style.display = 'none'
+        //     questionario.style.display = 'flex'
+        // }
+
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
+</script>
