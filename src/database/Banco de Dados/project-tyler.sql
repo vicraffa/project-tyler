@@ -2,20 +2,12 @@ drop database projecttyler;
 create database projecttyler;
 use projecttyler;
 
-create table album (
-id int primary key auto_increment,
-nome varchar(45),
-descricao varchar(100),
-img char(1)
-);
 
 create table usuario (
 id int primary key auto_increment,
 nickname varchar(100) unique,
 email varchar(100) unique,
-senha varchar(45),
-album_id int,
-constraint albumUsuario foreign key (album_id) references album (id)
+senha varchar(45)
 );
 
 create table tentativaQuestionario (
@@ -25,10 +17,16 @@ primary key (id, usuario_id),
 constraint usuarioTentativaQuestionario foreign key (usuario_id) references usuario (id),
 acertos int not null,
 erros int not null,
-qtdPerguntas int not null,
 dtRegistro datetime default current_timestamp
 );
 
 select * from usuario;
 
-delete from usuario where id = 5;
+SELECT u.nickname, MAX(t.acertos) AS pontuacao
+        FROM tentativaQuestionario t
+        JOIN usuario u ON t.usuario_id = u.id
+        GROUP BY t.usuario_id, u.nickname
+        ORDER BY pontuacao DESC
+        LIMIT 8;
+        
+        
