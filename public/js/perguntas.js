@@ -15,206 +15,206 @@
             alternativaD: "A$AP Mob",
             alternativaCorreta: "alternativaB"
         },
-        {
-            pergunta: "Qual álbum apresenta o personagem 'Wolf Haley'?",
-            alternativaA: "Flower Boy",
-            alternativaB: "Wolf",
-            alternativaC: "Igor",
-            alternativaD: "Cherry Bomb",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Em qual álbum Tyler ganhou seu primeiro Grammy?",
-            alternativaA: "Wolf",
-            alternativaB: "Goblin",
-            alternativaC: "Igor",
-            alternativaD: "Cherry Bomb",
-            alternativaCorreta: "alternativaC"
-        },
-        {
-            pergunta: "Qual desses é um alter ego de Tyler?",
-            alternativaA: "Tron Cat",
-            alternativaB: "Tony Flow",
-            alternativaC: "Captain Murphy",
-            alternativaD: "Sir Cartier",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual marca de moda Tyler criou?",
-            alternativaA: "Lemon Boy",
-            alternativaB: "Golf Wang",
-            alternativaC: "Tyler Apparel",
-            alternativaD: "Wang Golfwear",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "'Flower Boy' também é conhecido como...",
-            alternativaA: "Scum Fuck Flower Boy",
-            alternativaB: "Garden Boy",
-            alternativaC: "Bee Boy",
-            alternativaD: "Flowers Everywhere",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Quem é uma forte influência musical para Tyler?",
-            alternativaA: "Pharrell Williams",
-            alternativaB: "Drake",
-            alternativaC: "Future",
-            alternativaD: "Travis Scott",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual gênero é mais associado ao Tyler?",
-            alternativaA: "Samba",
-            alternativaB: "Hip-hop alternativo",
-            alternativaC: "EDM",
-            alternativaD: "Rock progressivo",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual era o visual principal da era 'Igor'?",
-            alternativaA: "Peruca loira e terno rosa",
-            alternativaB: "Máscara preta",
-            alternativaC: "Moletom amarelo",
-            alternativaD: "Chapéu militar",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual foi o primeiro álbum do Tyler?",
-            alternativaA: "Goblin",
-            alternativaB: "Wolf",
-            alternativaC: "Bastard",
-            alternativaD: "Flower Boy",
-            alternativaCorreta: "alternativaC"
-        },
-        {
-            pergunta: "Tyler dirige seus próprios clipes usando qual nome?",
-            alternativaA: "Wolf Haley",
-            alternativaB: "Tyler Films",
-            alternativaC: "Okonma Vision",
-            alternativaD: "Haley Maker",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual instrumento Tyler mais usa em suas produções?",
-            alternativaA: "Gaita",
-            alternativaB: "Piano",
-            alternativaC: "Violão",
-            alternativaD: "Bateria eletrônica",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual álbum de Tyler é considerado o mais agressivo?",
-            alternativaA: "Goblin",
-            alternativaB: "Flower Boy",
-            alternativaC: "Cherry Bomb",
-            alternativaD: "Igor",
-            alternativaCorreta: "alternativaC"
-        },
-        {
-            pergunta: "Em qual série animada Tyler dubla um personagem?",
-            alternativaA: "Regular Show",
-            alternativaB: "The Boondocks",
-            alternativaC: "Rick and Morty",
-            alternativaD: "Adventure Time",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual dessas músicas pertence ao álbum 'Igor'?",
-            alternativaA: "Tamale",
-            alternativaB: "EARFQUAKE",
-            alternativaC: "See You Again",
-            alternativaD: "Yonkers",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Em qual estado dos EUA Tyler nasceu?",
-            alternativaA: "Califórnia",
-            alternativaB: "Texas",
-            alternativaC: "Geórgia",
-            alternativaD: "Flórida",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Em que ano 'Flower Boy' foi lançado?",
-            alternativaA: "2017",
-            alternativaB: "2019",
-            alternativaC: "2015",
-            alternativaD: "2021",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual o tema central de 'Igor'?",
-            alternativaA: "Ambição",
-            alternativaB: "Rompimento amoroso",
-            alternativaC: "Viagens",
-            alternativaD: "Criminalidade",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual álbum traz uma estética de viagem e passaporte?",
-            alternativaA: "Flower Boy",
-            alternativaB: "Call Me If You Get Lost",
-            alternativaC: "Wolf",
-            alternativaD: "Goblin",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual personagem fictício aparece em múltiplos projetos de Tyler?",
-            alternativaA: "Dr. TC",
-            alternativaB: "Doctor Doom",
-            alternativaC: "Kid Crawler",
-            alternativaD: "Shadow Boy",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Tyler participou de qual festival como headliner pela primeira vez?",
-            alternativaA: "Camp Flog Gnaw",
-            alternativaB: "Rolling Loud",
-            alternativaC: "Lollapalooza",
-            alternativaD: "Coachella",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "'See You Again' tem feat com qual artista?",
-            alternativaA: "Frank Ocean",
-            alternativaB: "Kali Uchis",
-            alternativaC: "Solange",
-            alternativaD: "A$AP Rocky",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual dessas músicas é do álbum Wolf?",
-            alternativaA: "IFHY",
-            alternativaB: "EARFQUAKE",
-            alternativaC: "BEST INTEREST",
-            alternativaD: "JUGGERNAUT",
-            alternativaCorreta: "alternativaA"
-        },
-        {
-            pergunta: "Qual dessas músicas ficou viral no TikTok anos depois?",
-            alternativaA: "Yonkers",
-            alternativaB: "See You Again",
-            alternativaC: "Boredom",
-            alternativaD: "Potato Salad",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "O álbum Cherry Bomb é famoso por...",
-            alternativaA: "Ser extremamente polido",
-            alternativaB: "Ter mixagem caótica",
-            alternativaC: "Ser acústico",
-            alternativaD: "Ser instrumental",
-            alternativaCorreta: "alternativaB"
-        },
-        {
-            pergunta: "Qual artista já fez feat em *Call Me If You Get Lost*?",
-            alternativaA: "NBA Youngboy",
-            alternativaB: "Ed Sheeran",
-            alternativaC: "21 Savage",
-            alternativaD: "Kid Cudi",
-            alternativaCorreta: "alternativaA"
-        },
+        // {
+        //     pergunta: "Qual álbum apresenta o personagem 'Wolf Haley'?",
+        //     alternativaA: "Flower Boy",
+        //     alternativaB: "Wolf",
+        //     alternativaC: "Igor",
+        //     alternativaD: "Cherry Bomb",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Em qual álbum Tyler ganhou seu primeiro Grammy?",
+        //     alternativaA: "Wolf",
+        //     alternativaB: "Goblin",
+        //     alternativaC: "Igor",
+        //     alternativaD: "Cherry Bomb",
+        //     alternativaCorreta: "alternativaC"
+        // },
+        // {
+        //     pergunta: "Qual desses é um alter ego de Tyler?",
+        //     alternativaA: "Tron Cat",
+        //     alternativaB: "Tony Flow",
+        //     alternativaC: "Captain Murphy",
+        //     alternativaD: "Sir Cartier",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual marca de moda Tyler criou?",
+        //     alternativaA: "Lemon Boy",
+        //     alternativaB: "Golf Wang",
+        //     alternativaC: "Tyler Apparel",
+        //     alternativaD: "Wang Golfwear",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "'Flower Boy' também é conhecido como...",
+        //     alternativaA: "Scum Fuck Flower Boy",
+        //     alternativaB: "Garden Boy",
+        //     alternativaC: "Bee Boy",
+        //     alternativaD: "Flowers Everywhere",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Quem é uma forte influência musical para Tyler?",
+        //     alternativaA: "Pharrell Williams",
+        //     alternativaB: "Drake",
+        //     alternativaC: "Future",
+        //     alternativaD: "Travis Scott",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual gênero é mais associado ao Tyler?",
+        //     alternativaA: "Samba",
+        //     alternativaB: "Hip-hop alternativo",
+        //     alternativaC: "EDM",
+        //     alternativaD: "Rock progressivo",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual era o visual principal da era 'Igor'?",
+        //     alternativaA: "Peruca loira e terno rosa",
+        //     alternativaB: "Máscara preta",
+        //     alternativaC: "Moletom amarelo",
+        //     alternativaD: "Chapéu militar",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual foi o primeiro álbum do Tyler?",
+        //     alternativaA: "Goblin",
+        //     alternativaB: "Wolf",
+        //     alternativaC: "Bastard",
+        //     alternativaD: "Flower Boy",
+        //     alternativaCorreta: "alternativaC"
+        // },
+        // {
+        //     pergunta: "Tyler dirige seus próprios clipes usando qual nome?",
+        //     alternativaA: "Wolf Haley",
+        //     alternativaB: "Tyler Films",
+        //     alternativaC: "Okonma Vision",
+        //     alternativaD: "Haley Maker",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual instrumento Tyler mais usa em suas produções?",
+        //     alternativaA: "Gaita",
+        //     alternativaB: "Piano",
+        //     alternativaC: "Violão",
+        //     alternativaD: "Bateria eletrônica",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual álbum de Tyler é considerado o mais agressivo?",
+        //     alternativaA: "Goblin",
+        //     alternativaB: "Flower Boy",
+        //     alternativaC: "Cherry Bomb",
+        //     alternativaD: "Igor",
+        //     alternativaCorreta: "alternativaC"
+        // },
+        // {
+        //     pergunta: "Em qual série animada Tyler dubla um personagem?",
+        //     alternativaA: "Regular Show",
+        //     alternativaB: "The Boondocks",
+        //     alternativaC: "Rick and Morty",
+        //     alternativaD: "Adventure Time",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual dessas músicas pertence ao álbum 'Igor'?",
+        //     alternativaA: "Tamale",
+        //     alternativaB: "EARFQUAKE",
+        //     alternativaC: "See You Again",
+        //     alternativaD: "Yonkers",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Em qual estado dos EUA Tyler nasceu?",
+        //     alternativaA: "Califórnia",
+        //     alternativaB: "Texas",
+        //     alternativaC: "Geórgia",
+        //     alternativaD: "Flórida",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Em que ano 'Flower Boy' foi lançado?",
+        //     alternativaA: "2017",
+        //     alternativaB: "2019",
+        //     alternativaC: "2015",
+        //     alternativaD: "2021",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual o tema central de 'Igor'?",
+        //     alternativaA: "Ambição",
+        //     alternativaB: "Rompimento amoroso",
+        //     alternativaC: "Viagens",
+        //     alternativaD: "Criminalidade",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual álbum traz uma estética de viagem e passaporte?",
+        //     alternativaA: "Flower Boy",
+        //     alternativaB: "Call Me If You Get Lost",
+        //     alternativaC: "Wolf",
+        //     alternativaD: "Goblin",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual personagem fictício aparece em múltiplos projetos de Tyler?",
+        //     alternativaA: "Dr. TC",
+        //     alternativaB: "Doctor Doom",
+        //     alternativaC: "Kid Crawler",
+        //     alternativaD: "Shadow Boy",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Tyler participou de qual festival como headliner pela primeira vez?",
+        //     alternativaA: "Camp Flog Gnaw",
+        //     alternativaB: "Rolling Loud",
+        //     alternativaC: "Lollapalooza",
+        //     alternativaD: "Coachella",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "'See You Again' tem feat com qual artista?",
+        //     alternativaA: "Frank Ocean",
+        //     alternativaB: "Kali Uchis",
+        //     alternativaC: "Solange",
+        //     alternativaD: "A$AP Rocky",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual dessas músicas é do álbum Wolf?",
+        //     alternativaA: "IFHY",
+        //     alternativaB: "EARFQUAKE",
+        //     alternativaC: "BEST INTEREST",
+        //     alternativaD: "JUGGERNAUT",
+        //     alternativaCorreta: "alternativaA"
+        // },
+        // {
+        //     pergunta: "Qual dessas músicas ficou viral no TikTok anos depois?",
+        //     alternativaA: "Yonkers",
+        //     alternativaB: "See You Again",
+        //     alternativaC: "Boredom",
+        //     alternativaD: "Potato Salad",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "O álbum Cherry Bomb é famoso por...",
+        //     alternativaA: "Ser extremamente polido",
+        //     alternativaB: "Ter mixagem caótica",
+        //     alternativaC: "Ser acústico",
+        //     alternativaD: "Ser instrumental",
+        //     alternativaCorreta: "alternativaB"
+        // },
+        // {
+        //     pergunta: "Qual artista já fez feat em *Call Me If You Get Lost*?",
+        //     alternativaA: "NBA Youngboy",
+        //     alternativaB: "Ed Sheeran",
+        //     alternativaC: "21 Savage",
+        //     alternativaD: "Kid Cudi",
+        //     alternativaCorreta: "alternativaA"
+        // },
         {
             pergunta: "Qual foi o primeiro trabalho lançado por Tyler?",
             alternativaA: "Wolf",
