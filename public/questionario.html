@@ -7,15 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/questionario.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/sessao.js"></script>
 
 </head>
 
-<body onload="onloadEsconder">
+<body onload="onloadEsconder()">
 
     <header>
         <div>
             <a class="header-questionario ativo" href="questionario.html">QUESTIONÁRIO</a>
-            <a class="header-questionario" href="forum.html">FORUM</a>
+            <a class="header-questionario" href="chat.html">CHAT</a>
             <a class="header-perfil" href="perfil.html">PERFIL</a>
         </div>
     </header>
@@ -50,54 +51,7 @@
                                 <th>PONTUAÇÃO</th>
                             </tr>
                         </thead>
-                        <tbody id="tabela-marcas">
-                            <tr class="linha">
-                                <td class="rank">1º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">2º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">3º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">4º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">5º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha-25">
-                                <td class="rank">6º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">7º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
-
-                            <tr class="linha">
-                                <td class="rank">8º</td>
-                                <td class="nickname">gus34</td>
-                                <td class="pontuacaoRanking">25</td>
-                            </tr>
+                        <tbody id="tabela-dados">
                         </tbody>
                     </table>
                 </div>
@@ -155,8 +109,7 @@
                             <button onclick="submeter()" id="btnSubmeter">SUBMETER</button>
                             <button onclick="avancar()" id="btnProx" disabled>AVANÇAR</button>
                             <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>TENTAR
-                                NOVAMENTE</button>
+                            <!-- <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>TENTAR NOVAMENTE</button> -->
                         </div>
 
                     </div>
@@ -201,7 +154,17 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
+    let tabelaRanking = document.getElementById('tabela-dados')
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function inicializarQuestionario() {
+
+        if (typeof validarSessao === 'function') {
+            validarSessao()
+        }
+
+        carregarRanking()
+    }
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
@@ -213,11 +176,6 @@
         inicio.style.display = 'none'
         questionario.style.display = 'flex'
 
-        // function iniciarquestionario() {
-        //     inicio.style.display = 'none'
-        //     questionario.style.display = 'flex'
-        // }
-
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -228,8 +186,6 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -362,13 +318,37 @@
         })
     }
 
-    // function limparCoresBackgroundOpcoes() {
-    //     const options = document.getElementsByName("option");
-    //     options.forEach((option) => {
-    //         document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
-    //         document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
-    //     })
-    // }
+
+
+
+    function registrarTentativa() {
+    var id = sessionStorage.getItem("ID_USUARIO");
+    // Enviando o valor da nova input
+    fetch("/questionario/tentativa", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idServer: id,
+        certasServer: certas,
+        erradasServer: erradas
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+
 
     function desmarcarRadioButtons() {
         const options = document.getElementsByName("option");
@@ -397,21 +377,14 @@
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
-
-        // document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        // document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
-        btnProx.disabled = true
-        btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = false
-
         questionario.style.display = 'none'
         resultados.style.display = 'flex'
         
+        registrarTentativa()
     }
 
 
