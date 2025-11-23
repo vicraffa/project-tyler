@@ -11,7 +11,7 @@
 
 </head>
 
-<body onload="onloadEsconder()">
+<body>
 
     <header>
         <div>
@@ -119,22 +119,7 @@
         </div>
 
         <div class="resultados" id="resultados">
-            <div class="card">
-                <div id="pontuacaoFinalJogo">
-                    <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">***</span></span>
-                    <!-- <span id="msgFinal"></span> -->
-                </div>
-                <div id="pontuacao">
-                    <div id="pontuacaoDuranteJogo">
-                        <span>ACERTOS:<span id="spanCertas" style="color: green;">0</span></span>
-                        <span>ERROS:<span id="spanErradas" style="color: red;">0</span></span>
-                    </div>
-                </div>
-                <div class="btns">
-                    <button onclick="iniciarQuiz()" class="buttonResultados">TENTAR NOVAMENTE</button>
-                    <button onclick="tentarNovamente()" " class="buttonResultados">FINALIZAR</button>
-                </div>
-            </div>
+
         </div>
     </main>
 
@@ -143,10 +128,10 @@
 </html>
 <script src="js/perguntas.js"></script>
 <script>
-        questionario.style.display = 'none'
-        resultados.style.display = 'none'
-        inicio.style.display = 'flex'
-
+    questionario.style.display = 'none'
+    resultados.style.display = 'none'
+    inicio.style.display = 'flex'
+    
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
@@ -155,21 +140,8 @@
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
     let tabelaRanking = document.getElementById('tabela-dados')
+    let valor_tabela;
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
-
-    function inicializarQuestionario() {
-
-        if (typeof validarSessao === 'function') {
-            validarSessao()
-        }
-
-        carregarRanking()
-    }
-
-    function onloadEsconder() {
-        document.getElementById('pontuacao').style.display = "none"
-        document.getElementById('jogo').style.display = "none"
-    }
 
     function iniciarQuiz() {
         resultados.style.display = 'none'
@@ -192,8 +164,6 @@
         habilitarAlternativas(true)
         const questaoAtual = listaDeQuestoes[index]
         numeroDaQuestaoAtual = index
-        console.log("questaoAtual")
-        console.log(questaoAtual)
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
@@ -232,7 +202,6 @@
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
         quartaOpcao.disabled = opcaoEscolhida
-
     }
 
     function avancar() {
@@ -249,37 +218,49 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
-            finalizarJogo()
+            finalizarTentativa()
         }
-        
+
 
         resultados.innerHTML = `
             <div class="card">
                 <div id="pontuacaoFinalJogo">
                     <span id="pontuacaoFinal">PONTUAÇÃO FINAL:<span id="spanPontuacaoFinal">${pontuacaoFinal}</span></span>
                     <!-- <span id="msgFinal"></span> -->
-                </div>
-                <div id="pontuacao">
-                    <div id="pontuacaoDuranteJogo">
-                        <span>ACERTOS:<span id="spanCertas" style="color: green;">${certas}</span></span>
-                        <span>ERROS:<span id="spanErradas" style="color: red;">${erradas}</span></span>
                     </div>
-                </div>
-                <div class="btns">
-                    <button onclick="iniciarQuiz()" class="buttonResultados">TENTAR NOVAMENTE</button>
-                    <button onclick="tentarNovamente()" " class="buttonResultados">FINALIZAR</button>
-                </div>
-            </div>
-        `
-        ;
+                    <div id="pontuacao">
+                        <div id="pontuacaoDuranteJogo">
+                            <span>ACERTOS:<span id="spanCertas" style="color: green;">${certas}</span></span>
+                            <span>ERROS:<span id="spanErradas" style="color: red;">${erradas}</span></span>
+                            </div>
+                            </div>
+                            <div class="btns">
+                                <button onclick="tentarNovamente()" class="buttonResultados">TENTAR NOVAMENTE</button>
+                                <button onclick="finalizarJogo()" " class="buttonResultados">FINALIZAR</button>
+                                </div>
+                                </div>
+                                `
+            ;
     }
 
     function tentarNovamente() {
-        // atualiza a página
-        window.location.reload()
+        pontuacaoFinal = 0
+        certas = 0
+        erradas = 0
+        iniciarQuiz()
+    }
+
+    function finalizarJogo() {
+        window.location.reload();
+    }
+
+    function finalizarTentativa() {
+        questionario.style.display = 'none'
+        resultados.style.display = 'flex'
+
+        registrarTentativa()
     }
 
     function checarResposta() {
@@ -292,7 +273,6 @@
 
         options.forEach((option) => {
             if (option.value === respostaQuestaoAtual) {
-                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
                 alternativaCorreta = option.labels[0].id
             }
         })
@@ -300,19 +280,13 @@
         // verifica se resposta assinalada é correta
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 pontuacaoFinal++
                 certas++
-                document.getElementById("spanCertas").innerHTML = certas
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
-
-                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 tentativaIncorreta++
                 erradas++
-                document.getElementById("spanErradas").innerHTML = erradas
                 numeroDaQuestaoAtual++
             }
         })
@@ -322,31 +296,29 @@
 
 
     function registrarTentativa() {
-    var id = sessionStorage.getItem("ID_USUARIO");
-    // Enviando o valor da nova input
-    fetch("/questionario/tentativa", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        idServer: id,
-        certasServer: certas,
-        erradasServer: erradas
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+        var id = sessionStorage.getItem("ID_USUARIO");
+        // Enviando o valor da nova input
+        fetch("/questionario/tentativa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idServer: id,
+                certasServer: certas,
+                erradasServer: erradas
+            }),
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
 
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
 
-    return false;
-  }
+        return false;
+    }
 
 
 
@@ -357,65 +329,48 @@
         }
     }
 
-    function finalizarJogo() {
-        let textoParaMensagemFinal = null
-        let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
-
-        if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
-        }
-
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
-
-        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
-
-        document.getElementById('jogo').classList.add("text-new-gray")
-
-        questionario.style.display = 'none'
-        resultados.style.display = 'flex'
-        
-        registrarTentativa()
-    }
 
 
     function marcarOpcao(opcao) {
-
-        if (opcao == 'primeiraOpcao') {
-            document.getElementById('primeiraOpcaoSpan').classList.add('marcado')
-            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
-            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
-            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
-
-        } else if (opcao == 'segundaOpcao') {
-            document.getElementById('segundaOpcaoSpan').classList.add('marcado')
-            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
-            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
-            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
-
-        } else if (opcao == 'terceiraOpcao') {
-            document.getElementById('terceiraOpcaoSpan').classList.add('marcado')
-            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
-            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
-            document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
-
-        } else {
-            document.getElementById('quartaOpcaoSpan').classList.add('marcado')
-            document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
-            document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
-            document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
-
-        }
-
+        document.getElementById('primeiraOpcaoSpan').classList.remove('marcado')
+        document.getElementById('segundaOpcaoSpan').classList.remove('marcado')
+        document.getElementById('terceiraOpcaoSpan').classList.remove('marcado')
+        document.getElementById('quartaOpcaoSpan').classList.remove('marcado')
+        document.getElementById(`${opcao}Span`).classList.add('marcado')
     }
 
+
+    function obterDadosRanking() {
+        fetch(`/questionario/ranking`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    valor_tabela = resposta;
+                    montarTabela();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        }).catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+
+    function montarTabela(){
+        let tabela = document.getElementById("tabela-dados")
+
+        for(let i = 0; i < valor_tabela.length; i++){
+            let posicao = i+1
+            let nickname = valor_tabela[i].nickname
+            let pontuacao = valor_tabela[i].pontuacao
+
+            tabela.innerHTML += `
+            <tr>
+                <td>${posicao}</td>
+                <td>${nickname}</td>
+                <td>${pontuacao}</td>
+            </tr>`
+        }
+    }
+    obterDadosRanking()
 </script>
