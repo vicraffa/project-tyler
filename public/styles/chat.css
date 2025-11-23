@@ -1,0 +1,195 @@
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+:root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+@font-face {
+    font-family: 'Heavitas';
+    src: url(../assets/fonts/Heavitas.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../assets/fonts/Open\ Sans.ttf) format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--new-black);
+    background: url(../assets/imagem-chat.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    background: url(../assets/igor-texture.png);
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div a {
+    text-decoration: none;
+    color: var(--new-black);
+    font-family: 'Heavitas';
+    font-size: 4vh;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+}
+
+header div a.ativo {
+    background-color: #be6c83;
+    color: var(--new-white);
+}
+
+header div a:hover {
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+
+main {
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(1px);
+    font-family: 'Helvetica';
+}
+
+/* main h1 {
+    height: 8%;
+    width: 75%;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: white;
+} */
+
+
+main .formulario-mensagem {
+    /* background-color: #543e3e; */
+    height: 10%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-mensagem form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario-mensagem form label {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    resize: none;  
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 18px;
+    font-size: 1.4em;
+}
+
+form button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: url(../assets/enviar.png);
+    filter: invert();
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+form button:hover {
+    scale: 1.06;
+    transition: 0.3s;
+}
+
+
+main .div-mensagens {
+    /* background-color: #977878; */
+    margin-top: 30px;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.div-mensagens::-webkit-scrollbar { 
+  display: none;
+}
+
+.publicacao {
+    width: 90%;
+    background-color: #aa677a;
+    border-radius: 10px;
+    margin-bottom: 13px;
+    padding: 4px;
+    padding-left: 14px;
+}
+
+.publicacao-nome {
+    /* background-color: #990c19; */
+    font-size: 1.4em;
+    color: var(--new-black);
+    padding-bottom: 4px;
+    font-style: italic;
+}
+
+.publicacao-mensagem {
+    /* background-color: #dc3545; */
+    font-size: 1.1em;
+    color: var(--new-white);
+}

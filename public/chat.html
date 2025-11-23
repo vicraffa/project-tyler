@@ -5,68 +5,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/forum.css">
+    <link rel="stylesheet" href="styles/chat.css">
+    <script src="js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
-<body>
+<body onload="
+// validarSessao(), 
+atualizarFeed()">
 
     <header>
         <div>
             <a class="header-questionario" href="questionario.html">QUESTIONÁRIO</a>
-            <a class="header-forum ativo" href="chat.html">chat</a>
+            <a class="header-forum ativo" href="chat.html">CHAT</a>
             <a class="header-perfil" href="perfil.html">PERFIL</a>
         </div>
     </header>
 
 
-    <main class="main">
-        <div class="container">
-            <div class="containerTitulo">
-                <span class="titulo">CHAT</span>
-                <span class="subTitulo">Converse aqui sobre o Tyler e outros gostos!</span>
+    <main>
+            <!-- <h1>CHAT</h1> -->
+            <div id="feed_container" class="div-mensagens">
             </div>
-            <div class="containerComentario">
-                <textarea class="comentario" name="textArea" id="textArea" cols="30" rows="10"></textarea>
-                <button class="btn-nav pointer mb20" onclick="registrarMensagem
-                    ()" id="botaoComentario">Adicionar Mensagem</button>
+            <div class="formulario-mensagem">
+                <form id="form_postagem" method="post" onsubmit="return publicar()">
+                    <label>
+                        <textarea name="mensagem" id="textarea_mensagem" maxlength="450" rows="5"></textarea>
+                    </label>
+                    <button></button>
+                </form>
             </div>
-            <div id="divComentarios">
-
-            </div>
-        </div>
-        </div>
     </main>
 
 </body>
 
 </html>
 <script>
-    function registrarMensagem() {
-        var id = sessionStorage.getItem("ID_USUARIO");
-        var texto = document.getElementById('textArea').value;
-        
-        fetch("/chat/comentar", {
-            method: "POST",
+    var dadosFeed;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var usuario_id = sessionStorage.ID_USUARIO;
+
+        var corpo = {
+            mensagem: form_postagem.mensagem.value
+        }
+
+        fetch(`/chat/publicar/${usuario_id}`, {
+            method: "post",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                idServer: id,
-                mensagemServer: texto
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
 
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+            console.log("resposta: ", resposta);
 
-        document.getElementById('textArea').value = '';
+            if (resposta.ok) {
+                atualizarFeed()
+                limparFormulario();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
         return false;
+
+    }
+
+
+    function atualizarFeed() {
+        fetch(`/chat/listar`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    dadosFeed = resposta;
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanNome = document.createElement("span");
+                        var divmensagem = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        var btnDeletar = document.createElement("button");
+
+                        spanNome.innerHTML = "<b>" + publicacao.nickname + "</b>";
+                        divmensagem.innerHTML = publicacao.mensagem;
+
+                        divPublicacao.className = "publicacao";
+                        spanNome.className = "publicacao-nome";
+                        divmensagem.className = "publicacao-mensagem";
+
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(divmensagem);
+                        divPublicacao.appendChild(divButtons);
+                        feed.appendChild(divPublicacao);
+                    }
+
+                    feed.scrollTop = feed.scrollHeight;
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    
     }
 
 </script>
