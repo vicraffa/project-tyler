@@ -3,12 +3,12 @@ var router = express.Router();
 
 var chatController = require("../controllers/chatController");
 
-router.post("/comentar", function (req, res) {
-    chatController.registrarMensagem(req, res);
+router.get("/listar", function (req, res) {
+    chatController.listar(req, res);
 });
 
-router.get("/mensagens", function (req, res) {
-    chatController.exibirMensagem()(req, res);
+router.post("/publicar/:usuario_id", function (req, res) {
+    chatController.publicar(req, res);
 });
 
 module.exports = router;

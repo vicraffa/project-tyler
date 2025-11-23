@@ -1,26 +1,25 @@
 var database = require("../database/config");
 
-function registrarMensagem(id, mensagem) {
+function listar() {
     var instrucaoSql = `
-        INSERT INTO chat(usuario_id, mensagem) VALUES
-        (${id}, '${mensagem}');`
-
+        select nickname, mensagem, mensagem.id as id from mensagem
+        join usuario on usuario.id = usuario_id
+        order by mensagem.id;
+    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-// function exibirMensagens() {
-//     var instrucaoSql = `
-//         SELECT nickname, mensagem
-//         FROM usuario
-//         JOIN chat on usuario.id = usuario_id;;
-//         `;
+function publicar(mensagem, usuario_id) {
+    var instrucaoSql = `
+        INSERT INTO mensagem ( mensagem, usuario_id) VALUES ('${mensagem}', ${usuario_id});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
 
 module.exports = {
-    // exibirMensagens,
-    registrarMensagem
-};
+    listar,
+    publicar
+}

@@ -7,7 +7,7 @@ router.post("/tentativa", function (req, res) {
     questionarioController.registrarTentativa(req, res);
 });
 
-router.get("ranking", function (req, res) {
+router.get("/ranking", function (req, res) {
     questionarioController.listarRanking(req, res);
 });
 
