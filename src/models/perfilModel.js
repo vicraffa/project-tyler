@@ -6,7 +6,7 @@ function obterKpi(usuario_id){
         where user = ${usuario_id};
     `;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -18,7 +18,7 @@ function obterGrafico(usuario_id){
         limit 5;
     `;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 

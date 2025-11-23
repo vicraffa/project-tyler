@@ -192,19 +192,6 @@ main div.inicio-ranking .tabela{
     align-items: center;
 }
 
-/* table{
-        thead {
-            tr{
-                th{}
-            }
-
-        tbody{
-            tr{
-                td{}
-            }
-        }
-} */
-
 table {
     border-collapse: collapse;
     width: 90%;
@@ -307,6 +294,14 @@ main .questionario .card-perguntas {
     margin: 5px;
 }
 
+#pontuacaoFinalJogo {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7em;
+}
+
 #jogo {
     font-family: 'Open Sans';
     font-weight: 1000;
@@ -317,6 +312,8 @@ main .questionario .card-perguntas {
     justify-content: center;
     align-items: center;
 }
+
+
 
 #jogo #infoQuestao {
     color: var(--new-white);

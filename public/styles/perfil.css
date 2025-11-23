@@ -96,7 +96,7 @@ main {
     align-items: center;
     height: 70%;
     width: 80%;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 4px solid black;
     margin-bottom: 25%;
 }
@@ -160,11 +160,11 @@ main {
 }
 
 .kpi {
-    background-color: #dbdada;
+    background-color: #f8b5c6;
+    box-shadow: #be6c83 4px -3px 3px 0px;
     height: 100%;
     width: 22%;
-    border-radius: 20px;
-    border: 4px solid black;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -176,20 +176,20 @@ main {
 
 
 .tentativasQuestionario {
-    width: 98%;
-    height: 75%;
-    border: 5px solid black;
-    border-radius: 20px;
+    width: 80%;
+    height: 76%;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #dbdada;
+    background-color: #f8b5c6;
+    font-family: 'Open Sans';
     align-items: center;
 }
 
 .tentativasQuestionario .grafico {
-    width: 75%;
-    height: 85%;
+    width: 90%;
+    height: 80%;
 }
 
 
