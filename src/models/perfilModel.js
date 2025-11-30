@@ -5,8 +5,6 @@ function obterKpi(usuario_id){
         select * from exibirKpis
         where user = ${usuario_id};
     `;
-
-    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -17,8 +15,6 @@ function obterGrafico(usuario_id){
         order by acertos desc
         limit 5;
     `;
-
-    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 

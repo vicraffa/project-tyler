@@ -252,7 +252,7 @@ li:hover ul.dropdown-albuns {
 }
 
 .text-album {
-    font-size: 1.1em;
+    font-size: 1.2em;
     width: 70%;
     text-align: justify;
 }
@@ -409,7 +409,9 @@ li:hover ul.dropdown-albuns {
 }
 
 .cherrybomb .text-album, .text-cherrybomb .recomendacao {
+    font-weight: bold;
     color: black;
+    font-size: 1.25em;
 }
 
 .cherrybomb .text-session {
@@ -483,7 +485,7 @@ li:hover ul.dropdown-albuns {
 }
 
 .igor .text-album {
-    /* font-size: 1.4em; */
+    font-size: 1.3em;
 }
 
 .igor .text-album, .text-igor .recomendacao {
@@ -502,7 +504,7 @@ li:hover ul.dropdown-albuns {
 /* Call Me If You Get Lost */
 .callmeifyougetlost {
     background: url(../assets/passport-texture.png);
-        background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -666,44 +668,51 @@ color: black;
 
 
 .caminho-acessar {
-    height: 65vh;
-    background-color: #E8E8E8;
+    height: 95vh;
+    background-color: #fceea8;
     /* --new-black: #212427; */
     /* --new-white: #E8E8E8; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .caminho-acessar a {
-    background-color: #f8b5c6;
+    background-color: #b36176;
     color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    width: 300px;
+    width: 80%;
     height: 110px;
     font-family: 'Heavitas';
+    font-size: 0.8em;
+}
+
+.caminho-acessar div{
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .caminho-acessar a:hover {
-    background-color: #b36176;
-    color: white;
-    scale: 1.01;
+    background-color: #f8b5c6;
+    scale: 1.03;
     transition: 0.1s;
 }
 
 .degrade {
     height: 4vh;
-    background: linear-gradient(180deg,rgba(232, 232, 232, 1) 30%, rgb(198, 195, 195) 100%);
+    background: linear-gradient(180deg,rgba(252, 238, 168, 1) 0%, rgba(237, 213, 95, 1) 100%);;
 }
 
 footer {
-    background-color: rgb(198, 195, 195);
+    background-color: #EDD55F;
     height: 25vh;
     display: flex;
     flex-direction: column;

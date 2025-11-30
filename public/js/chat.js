@@ -6,7 +6,6 @@
 
     function publicar() {
         var usuario_id = sessionStorage.ID_USUARIO;
-
         var corpo = {
             mensagem: form_postagem.mensagem.value
         }
@@ -19,8 +18,6 @@
             body: JSON.stringify(corpo)
         }).then(function (resposta) {
 
-            // console.log("resposta: ", resposta);
-
             if (resposta.ok) {
                 atualizarFeed()
                 limparFormulario();
@@ -32,9 +29,7 @@
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
-
         return false;
-
     }
 
 
@@ -50,7 +45,6 @@
                 }
 
                 resposta.json().then(function (resposta) {
-                    // console.log("Dados recebidos: ", JSON.stringify(resposta));
                     dadosFeed = resposta;
 
                     var feed = document.getElementById("feed_container");
@@ -87,5 +81,5 @@
             console.error(resposta);
         });
 
-    
+    // setTimeout(atualizarFeed(), 2000)
     }

@@ -13,11 +13,7 @@ function autenticar(req, res) {
         usuarioModel.autenticar(nickname, senha)
             .then(
                 function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
                     if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
                         res.json(resultadoAutenticar[0])
                     } else if (resultadoAutenticar.length >= 0) {
                         res.status(403).send("Nickname e/ou senha inválido(s)");

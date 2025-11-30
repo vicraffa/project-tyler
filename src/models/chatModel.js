@@ -6,7 +6,6 @@ function listar() {
         join usuario on usuario.id = usuario_id
         order by mensagem.id;
     `;
-    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -14,7 +13,6 @@ function publicar(mensagem, usuario_id) {
     var instrucaoSql = `
         INSERT INTO mensagem ( mensagem, usuario_id) VALUES ('${mensagem}', ${usuario_id});
     `;
-    // console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 

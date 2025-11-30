@@ -11,7 +11,6 @@
         fetch(`/perfil/kpi/${usuario_id}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     
                     valor_kpi = resposta[0];
@@ -29,17 +28,17 @@
     
     function montarKPIS() {
         document.getElementById('kpi_total_tentativa').innerHTML = valor_kpi.quantidadeTentativas;
-        document.getElementById('kpi_pontuacao_total').innerHTML = valor_kpi.quantidadeAcertos * 7;
+        document.getElementById('kpi_melhor_pontuacao').innerHTML = valor_kpi.melhorPontuacao;
         document.getElementById('kpi_pontuacao_media').innerHTML = ((valor_kpi.quantidadeAcertos * 7) / valor_kpi.quantidadeTentativas).toFixed(0);
         document.getElementById('kpi_taxa_acerto').innerHTML = `${Number(valor_kpi.taxaAcerto) * 100}%`;
     }
     
     function obterDadosGrafico() {
         
-        fetch(`/perfil/grafico/${usuario_id}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/perfil/grafico/${usuario_id}`, { cache: 'no-store' })
+        .then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     
                     valor_grafico = resposta;
@@ -77,25 +76,16 @@
             }]
         };
 
-        // console.log('----------------------------------------------')
-        // console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        // console.log(resposta)
-
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+            
+            var pontuacao = registro.acertos * 7;
             var dataRegistro = registro.dtRegistro.slice(0, 10);
-            labels.push(dataRegistro);
-            dados.datasets[0].data.push((registro.acertos * 7));
-        }
 
-        // console.log('----------------------------------------------')
-        // console.log('O gráfico será plotado com os respectivos valores:')
-        // console.log('Labels:')
-        // console.log(labels)
-        // console.log('Dados:')
-        // console.log(dados.datasets)
-        // console.log('----------------------------------------------')
+            labels.push(dataRegistro);
+            dados.datasets[0].data.push(pontuacao);
+        }
 
         // Criando estrutura para plotar gráfico - config
         const config = {
@@ -122,6 +112,7 @@
             config
         );
     }
+
 
     function obterDados(){
         obterDadosGrafico();

@@ -82,6 +82,7 @@
                     sessionStorage.NICK_USUARIO = json.nickname;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    msg_login.style.display = 'flex';
                     msg_login.innerHTML = `<br><span style="color: green; font-size:1.3em;">Login realizado.. redirecionando...</span>`;
                     setTimeout(function () {
                         window.location = "questionario.html";

@@ -73,13 +73,14 @@ create view exibirKpis as
 select 	usuario_id as `user`,
 		count(usuario_id) as quantidadeTentativas, 
 		sum(erros) as quantidadeErros, 
-        sum(acertos) as quantidadeAcertos, 
+        max(acertos) as melhorPontuacao,
+        sum(acertos) as quantidadeAcertos,
         round(sum(acertos) / sum(acertos + erros), 2)  as taxaAcerto
 from tentativaQuestionario
 group by (usuario_id);
 
 select * from exibirKpis
-where user = 5;
+where user = 1;
 
 create view rankingTentativas as
 select u.nickname, MAX(t.acertos) as pontuacao

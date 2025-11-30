@@ -119,10 +119,25 @@ main {
 }
 
 .user .sair span {
+    width: 25%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 4%;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 0.8em;
 }
 
-
+.user .sair span:hover{
+    cursor: pointer;
+    margin: 4%;
+    background-color: #be6c83;
+    scale: 1.01;
+    transition: 0.2s;
+    border-radius: 5px;
+}
 
 
 

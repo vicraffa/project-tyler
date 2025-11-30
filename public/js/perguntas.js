@@ -223,46 +223,46 @@
             alternativaD: "Yonkers (single)",
             alternativaCorreta: "alternativaB"
         },
-        // {
-        //     pergunta: "Em Cherry Bomb, Tyler colabora com qual guitarrista famoso?",
-        //     alternativaA: "Omar Rodríguez-López",
-        //     alternativaB: "John Mayer",
-        //     alternativaC: "Slash",
-        //     alternativaD: "Jack White",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Qual é o maior hit comercial do Tyler?",
-        //     alternativaA: "EARFQUAKE",
-        //     alternativaB: "Yonkers",
-        //     alternativaC: "Tamale",
-        //     alternativaD: "Lumberjack",
-        //     alternativaCorreta: "alternativaA"
-        // },
-        // {
-        //     pergunta: "Qual é o mascote da Golf Wang?",
-        //     alternativaA: "A caveira rosa",
-        //     alternativaB: "O donut com olhos",
-        //     alternativaC: "O peixe dourado",
-        //     alternativaD: "A abelha amarela",
-        //     alternativaCorreta: "alternativaD"
-        // },
-        // {
-        //     pergunta: "Qual álbum marca uma mudança emocional mais madura?",
-        //     alternativaA: "Goblin",
-        //     alternativaB: "Cherry Bomb",
-        //     alternativaC: "Flower Boy",
-        //     alternativaD: "Bastard",
-        //     alternativaCorreta: "alternativaC"
-        // },
-        // {
-        //     pergunta: "'Yonkers' foi um marco por qual motivo?",
-        //     alternativaA: "Produção experimental",
-        //     alternativaB: "Clipe polêmico",
-        //     alternativaC: "Letra romântica",
-        //     alternativaD: "Feat com Eminem",
-        //     alternativaCorreta: "alternativaB"
-        // },
+        {
+            pergunta: "Em Cherry Bomb, Tyler colabora com qual guitarrista famoso?",
+            alternativaA: "Omar Rodríguez-López",
+            alternativaB: "John Mayer",
+            alternativaC: "Slash",
+            alternativaD: "Jack White",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é o maior hit comercial do Tyler?",
+            alternativaA: "EARFQUAKE",
+            alternativaB: "Yonkers",
+            alternativaC: "Tamale",
+            alternativaD: "Lumberjack",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o mascote da Golf Wang?",
+            alternativaA: "A caveira rosa",
+            alternativaB: "O donut com olhos",
+            alternativaC: "O peixe dourado",
+            alternativaD: "A abelha amarela",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "Qual álbum marca uma mudança emocional mais madura?",
+            alternativaA: "Goblin",
+            alternativaB: "Cherry Bomb",
+            alternativaC: "Flower Boy",
+            alternativaD: "Bastard",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "'Yonkers' foi um marco por qual motivo?",
+            alternativaA: "Produção experimental",
+            alternativaB: "Clipe polêmico",
+            alternativaC: "Letra romântica",
+            alternativaD: "Feat com Eminem",
+            alternativaCorreta: "alternativaB"
+        },
         {
             pergunta: "Qual álbum ganhou Grammy de Melhor Álbum de Rap?",
             alternativaA: "Flower Boy",
@@ -271,110 +271,110 @@
             alternativaD: "Wolf",
             alternativaCorreta: "alternativaB"
         },
-        // {
-        //     pergunta: "Qual música é famosa por seu coral final?",
-        //     alternativaA: "RUNNING OUT OF TIME",
-        //     alternativaB: "FOREWORD",
-        //     alternativaC: "ARE WE STILL FRIENDS?",
-        //     alternativaD: "SWEET / I THOUGHT YOU WANTED TO DANCE",
-        //     alternativaCorreta: "alternativaC"
-        // },
-        // {
-        //     pergunta: "Tyler criou um festival chamado...",
-        //     alternativaA: "Flog Gnaw",
-        //     alternativaB: "Flower Fest",
-        //     alternativaC: "Odd Future Days",
-        //     alternativaD: "Igor Fest",
-        //     alternativaCorreta: "alternativaA"
-        // },
-        // {
-        //     pergunta: "Qual música apresenta o personagem 'Boyfriend'? ",
-        //     alternativaA: "BEST INTEREST",
-        //     alternativaB: "Puppet",
-        //     alternativaC: "WILSHIRE",
-        //     alternativaD: "I THINK",
-        //     alternativaCorreta: "alternativaD"
-        // },
-        // {
-        //     pergunta: "'Lemonhead' tem feat com qual artista?",
-        //     alternativaA: "Lil Wayne",
-        //     alternativaB: "NBA Youngboy",
-        //     alternativaC: "Charlie Wilson",
-        //     alternativaD: "Brent Faiyaz",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Qual álbum é o mais longo da discografia do Tyler?",
-        //     alternativaA: "Igor",
-        //     alternativaB: "Call Me If You Get Lost",
-        //     alternativaC: "Wolf",
-        //     alternativaD: "Cherry Bomb",
-        //     alternativaCorreta: "alternativaC"
-        // },
-        // {
-        //     pergunta: "Qual álbum foi relançado como 'The Estate Sale'?",
-        //     alternativaA: "Wolf",
-        //     alternativaB: "Call Me If You Get Lost",
-        //     alternativaC: "Flower Boy",
-        //     alternativaD: "Igor",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Qual single marcou o início da era 'Flower Boy'?",
-        //     alternativaA: "Boredom",
-        //     alternativaB: "911 / Mr. Lonely",
-        //     alternativaC: "Who Dat Boy",
-        //     alternativaD: "See You Again",
-        //     alternativaCorreta: "alternativaC"
-        // },
-        // {
-        //     pergunta: "'New Magic Wand' pertence a qual álbum?",
-        //     alternativaA: "Flower Boy",
-        //     alternativaB: "Igor",
-        //     alternativaC: "Wolf",
-        //     alternativaD: "Goblin",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Tyler já trabalhou com a marca...",
-        //     alternativaA: "Lacoste",
-        //     alternativaB: "Louis Vuitton",
-        //     alternativaC: "Converse",
-        //     alternativaD: "Puma",
-        //     alternativaCorreta: "alternativaC"
-        // },
-        // {
-        //     pergunta: "Qual tema visual se repete na carreira do Tyler?",
-        //     alternativaA: "Aviões",
-        //     alternativaB: "Abelhas",
-        //     alternativaC: "Carros antigos",
-        //     alternativaD: "Relógios",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Qual desses é um EP de Tyler?",
-        //     alternativaA: "Black Friday",
-        //     alternativaB: "Music Inspired by Illumination & Dr. Seuss’ The Grinch",
-        //     alternativaC: "Odd Mode",
-        //     alternativaD: "Golf Radio",
-        //     alternativaCorreta: "alternativaB"
-        // },
-        // {
-        //     pergunta: "Tyler já fez tema musical para qual filme?",
-        //     alternativaA: "O Grinch",
-        //     alternativaB: "Inception",
-        //     alternativaC: "Spider-Man",
-        //     alternativaD: "Joker",
-        //     alternativaCorreta: "alternativaA"
-        // },
-        // {
-        //     pergunta: "Qual personalidade Tyler admira publicamente?",
-        //     alternativaA: "Steve Lacy",
-        //     alternativaB: "Elon Musk",
-        //     alternativaC: "Kanye West",
-        //     alternativaD: "Will Smith",
-        //     alternativaCorreta: "alternativaC"
-        // },
+        {
+            pergunta: "Qual música é famosa por seu coral final?",
+            alternativaA: "RUNNING OUT OF TIME",
+            alternativaB: "FOREWORD",
+            alternativaC: "ARE WE STILL FRIENDS?",
+            alternativaD: "SWEET / I THOUGHT YOU WANTED TO DANCE",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Tyler criou um festival chamado...",
+            alternativaA: "Flog Gnaw",
+            alternativaB: "Flower Fest",
+            alternativaC: "Odd Future Days",
+            alternativaD: "Igor Fest",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual música apresenta o personagem 'Boyfriend'? ",
+            alternativaA: "BEST INTEREST",
+            alternativaB: "Puppet",
+            alternativaC: "WILSHIRE",
+            alternativaD: "I THINK",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "'Lemonhead' tem feat com qual artista?",
+            alternativaA: "Lil Wayne",
+            alternativaB: "NBA Youngboy",
+            alternativaC: "Charlie Wilson",
+            alternativaD: "Brent Faiyaz",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual álbum é o mais longo da discografia do Tyler?",
+            alternativaA: "Igor",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Wolf",
+            alternativaD: "Cherry Bomb",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual álbum foi relançado como 'The Estate Sale'?",
+            alternativaA: "Wolf",
+            alternativaB: "Call Me If You Get Lost",
+            alternativaC: "Flower Boy",
+            alternativaD: "Igor",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual single marcou o início da era 'Flower Boy'?",
+            alternativaA: "Boredom",
+            alternativaB: "911 / Mr. Lonely",
+            alternativaC: "Who Dat Boy",
+            alternativaD: "See You Again",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "'New Magic Wand' pertence a qual álbum?",
+            alternativaA: "Flower Boy",
+            alternativaB: "Igor",
+            alternativaC: "Wolf",
+            alternativaD: "Goblin",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Tyler já trabalhou com a marca...",
+            alternativaA: "Lacoste",
+            alternativaB: "Louis Vuitton",
+            alternativaC: "Converse",
+            alternativaD: "Puma",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual tema visual se repete na carreira do Tyler?",
+            alternativaA: "Aviões",
+            alternativaB: "Abelhas",
+            alternativaC: "Carros antigos",
+            alternativaD: "Relógios",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual desses é um EP de Tyler?",
+            alternativaA: "Black Friday",
+            alternativaB: "Music Inspired by Illumination & Dr. Seuss’ The Grinch",
+            alternativaC: "Odd Mode",
+            alternativaD: "Golf Radio",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Tyler já fez tema musical para qual filme?",
+            alternativaA: "O Grinch",
+            alternativaB: "Inception",
+            alternativaC: "Spider-Man",
+            alternativaD: "Joker",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual personalidade Tyler admira publicamente?",
+            alternativaA: "Steve Lacy",
+            alternativaB: "Elon Musk",
+            alternativaC: "Kanye West",
+            alternativaD: "Will Smith",
+            alternativaCorreta: "alternativaC"
+        },
         {
             pergunta: "Qual música veio como bônus na versão física de IGOR?",
             alternativaA: "Boyfriend",
@@ -383,20 +383,20 @@
             alternativaD: "Bronco",
             alternativaCorreta: "alternativaA"
         },
-        // {
-        //     pergunta: "Qual álbum apresenta o personagem 'Sammy'? ",
-        //     alternativaA: "Wolf",
-        //     alternativaB: "Cherry Bomb",
-        //     alternativaC: "Goblin",
-        //     alternativaD: "Flower Boy",
-        //     alternativaCorreta: "alternativaA"
-        // },
-        // {
-        //     pergunta: "Qual foi o primeiro grande hit de Tyler?",
-        //     alternativaA: "EARFQUAKE",
-        //     alternativaB: "See You Again",
-        //     alternativaC: "Yonkers",
-        //     alternativaD: "Tamale",
-        //     alternativaCorreta: "alternativaC"
-        // }
+        {
+            pergunta: "Qual álbum apresenta o personagem 'Sammy'? ",
+            alternativaA: "Wolf",
+            alternativaB: "Cherry Bomb",
+            alternativaC: "Goblin",
+            alternativaD: "Flower Boy",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual foi o primeiro grande hit de Tyler?",
+            alternativaA: "EARFQUAKE",
+            alternativaB: "See You Again",
+            alternativaC: "Yonkers",
+            alternativaD: "Tamale",
+            alternativaCorreta: "alternativaC"
+        }
     ]
