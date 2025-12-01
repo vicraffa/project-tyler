@@ -1,84 +1,80 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
-    var nickname = req.body.nicknameServer;
-    var senha = req.body.senhaServer;
+  var nickname = req.body.nicknameServer;
+  var senha = req.body.senhaServer;
 
-    if (nickname == undefined) {
-        res.status(400).send("Seu nickname está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
-    } else {
-
-        usuarioModel.autenticar(nickname, senha)
-            .then(
-                function (resultadoAutenticar) {
-                    if (resultadoAutenticar.length == 1) {
-                        res.json(resultadoAutenticar[0])
-                    } else if (resultadoAutenticar.length >= 0) {
-                        res.status(403).send("Nickname e/ou senha inválido(s)");
-                        return res.status(403).send("Nickname e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-
+  if (nickname == undefined) {
+    res.status(400).send("Seu nickname está undefined!");
+  } else if (senha == undefined) {
+    res.status(400).send("Sua senha está indefinida!");
+  } else {
+    usuarioModel
+      .autenticar(nickname, senha)
+      .then(function (resultadoAutenticar) {
+        if (resultadoAutenticar.length == 1) {
+          res.json(resultadoAutenticar[0]);
+        } else if (resultadoAutenticar.length >= 0) {
+          res.status(403).send("Nickname e/ou senha inválido(s)");
+          return res.status(403).send("Nickname e/ou senha inválido(s)");
+        } else {
+          res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o login! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nickname = req.body.nicknameServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+  // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+  var nickname = req.body.nicknameServer;
+  var email = req.body.emailServer;
+  var senha = req.body.senhaServer;
 
-    // Faça as validações dos valores
-    if (nickname == undefined) {
-        res.status(400).send("Seu nickname está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else {
+  // Faça as validações dos valores
+  if (nickname == undefined) {
+    res.status(400).send("Seu nickname está undefined!");
+  } else if (email == undefined) {
+    res.status(400).send("Seu email está undefined!");
+  } else if (senha == undefined) {
+    res.status(400).send("Sua senha está undefined!");
+  } else {
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel
+      .cadastrar(nickname, email, senha)
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nickname, email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
+        if (erro.code === "ER_DUP_ENTRY") {
+          if (erro.sqlMessage.includes("email")) {
+            return res.status(409).send("Email já está sendo utilizado.");
+          }
 
-                    if (erro.code === "ER_DUP_ENTRY") {
-                        if (erro.sqlMessage.includes("email")) {
-                            return res.status(409).send("Email já está sendo utilizado.");
-                        }
+          if (erro.sqlMessage.includes("nickname")) {
+            return res.status(409).send("Nickname já existente.");
+          }
+        }
 
-                        if (erro.sqlMessage.includes("nickname")) {
-                            return res.status(409).send("Nickname já existente.");
-                        }
-                    }
-
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
 }
 
 module.exports = {
-    autenticar,
-    cadastrar
-}
+  autenticar,
+  cadastrar,
+};
