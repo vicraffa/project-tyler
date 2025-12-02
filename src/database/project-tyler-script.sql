@@ -38,17 +38,16 @@ insert into usuario (nickname, email, senha) values
 ('plederson', 'plederson@email.com', 'Plederson@12345'),
 ('igonas', 'igonas@email.com', 'igonas@12345');
 
-insert into tentativaQuestionario(usuario_id, acertos, erros) values
-(1, 13, 17),
-(1, 25, 5),
-(2, 24, 6),
-(3, 10, 20),
-(4, 24, 6),
-(4, 5, 25),
-(6, 2, 4),
+insert into tentativaQuestionario (usuario_id, acertos, erros) values
+(1, 8, 4),
+(1, 10, 2),
+(2, 5, 7),
+(3, 6, 6),
+(4, 6, 6),
+(4, 5, 7),
+(6, 3, 4),
 (7, 3, 6),
-(8, 5, 8),
-(9, 14, 17);
+(8, 5, 5);
 
 insert into mensagem ( mensagem, usuario_id) values
 ('Oi, sempre gostei do Tyler, muito legal ter uma plataforma para conversar sobre ele.', 1),
