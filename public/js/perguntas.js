@@ -46,6 +46,7 @@ const listaDeQuestoes = [
     alternativaC: "Tyler Apparel",
     alternativaD: "Wang Golfwear",
     alternativaCorreta: "alternativaB",
+<<<<<<< HEAD
   },
   {
     pergunta: "'Flower Boy' também é conhecido como...",
@@ -97,6 +98,59 @@ const listaDeQuestoes = [
   }
   // ,
   // {
+=======
+  }
+  // ,
+  // {
+  //   pergunta: "'Flower Boy' também é conhecido como...",
+  //   alternativaA: "Bee Boy",
+  //   alternativaB: "Garden Boy",
+  //   alternativaC: "Scum Fuck Flower Boy",
+  //   alternativaD: "Flowers Everywhere",
+  //   alternativaCorreta: "alternativaC",
+  // },
+  // {
+  //   pergunta: "Quem é uma forte influência musical para Tyler?",
+  //   alternativaA: "Pharrell Williams",
+  //   alternativaB: "Drake",
+  //   alternativaC: "Future",
+  //   alternativaD: "Travis Scott",
+  //   alternativaCorreta: "alternativaA",
+  // },
+  // {
+  //   pergunta: "Qual gênero é mais associado ao Tyler?",
+  //   alternativaA: "Samba",
+  //   alternativaB: "Hip-hop alternativo",
+  //   alternativaC: "EDM",
+  //   alternativaD: "Rock progressivo",
+  //   alternativaCorreta: "alternativaB",
+  // },
+  // {
+  //   pergunta: "Qual foi o visual mais conhecido da era 'Igor'?",
+  //   alternativaA: "Peruca loira e terno rosa",
+  //   alternativaB: "Máscara preta",
+  //   alternativaC: "Chapéu militar",
+  //   alternativaD: "Peruca loira e terno azul",
+  //   alternativaCorreta: "alternativaD",
+  // },
+  // {
+  //   pergunta: "Qual foi o primeiro álbum do Tyler?",
+  //   alternativaA: "Goblin",
+  //   alternativaB: "Wolf",
+  //   alternativaC: "Bastard",
+  //   alternativaD: "Flower Boy",
+  //   alternativaCorreta: "alternativaA",
+  // },
+  // {
+  //   pergunta: "Tyler dirige seus próprios clipes usando qual nome?",
+  //   alternativaA: "Wolf Haley",
+  //   alternativaB: "Tyler Films",
+  //   alternativaC: "Okonma Vision",
+  //   alternativaD: "Haley Maker",
+  //   alternativaCorreta: "alternativaA",
+  // },
+  // {
+>>>>>>> 1ed9837c4d0bbbc3641e56689f77bbdf62520b7c
   //   pergunta: "Qual instrumento Tyler mais usa em suas produções?",
   //   alternativaA: "Gaita",
   //   alternativaB: "Piano",

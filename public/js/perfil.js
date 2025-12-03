@@ -29,7 +29,7 @@ function montarKPIS() {
   document.getElementById("kpi_total_tentativa").innerHTML =
     valor_kpi.quantidadeTentativas;
   document.getElementById("kpi_melhor_pontuacao").innerHTML =
-    valor_kpi.melhorPontuacao;
+    valor_kpi.melhorPontuacao * 7;
   document.getElementById("kpi_pontuacao_media").innerHTML = (
     (valor_kpi.quantidadeAcertos * 7) /
     valor_kpi.quantidadeTentativas
