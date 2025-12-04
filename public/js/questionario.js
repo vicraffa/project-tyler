@@ -8,7 +8,7 @@ let pontuacaoFinal = 0;
 let tentativaIncorreta = 0;
 let certas = 0;
 let erradas = 0;
-let quantidadeDeQuestoes = listaDeQuestoes.length;
+let quantidadeDeQuestoes;
 let tabelaRanking = document.getElementById("tabela-dados");
 let valor_tabela;
 let audio = document.getElementById("musicaTentativa");
@@ -29,6 +29,8 @@ function iniciarQuiz() {
   document.getElementById("jogo").style.display = "flex";
   document.getElementById("btnIniciarQuiz").style.display = "none";
 
+  aleatorizarPerguntas()
+  quantidadeDeQuestoes = listaDeQuestoes.length;
   document.getElementById("qtdQuestoes").innerHTML = quantidadeDeQuestoes;
 
   preencherHTMLcomQuestaoAtual(0);
